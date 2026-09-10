@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="70%" y2="0%">
+      <stop offset="0%" stop-color="#1d387d"/>
+      <stop offset="40%" stop-color="#2a5ec2"/>
+      <stop offset="75%" stop-color="#00a3ea"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+    <linearGradient id="flameGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#162252"/>
+      <stop offset="60%" stop-color="#21429c"/>
+      <stop offset="100%" stop-color="#0096e6"/>
+    </linearGradient>
+    <linearGradient id="flameGradCore" x1="20%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#008ecf"/>
+      <stop offset="50%" stop-color="#00b4f5"/>
+      <stop offset="100%" stop-color="#66e0ff"/>
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1d387d" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#subtleGlow)">
+    <!-- Outer Left Loop (Stylized P) -->
+    <path d="M 190 200 C 140 210, 110 170, 125 135 C 140 100, 185 125, 180 160 C 176 185, 150 180, 145 160 C 142 145, 155 135, 165 145 C 172 152, 168 170, 158 172 C 148 174, 135 158, 142 140 C 150 120, 185 128, 192 155 C 198 175, 175 200, 145 195 C 120 190, 105 160, 120 130 C 138 95, 195 100, 202 140 C 208 175, 180 205, 190 200 Z" fill="url(#flameGradDark)"/>
+    
+    <!-- Outer Main Flame swoosh (Left loop merging up into top tip) -->
+    <path d="M 205 203 C 155 205, 120 165, 135 125 C 152 82, 215 85, 222 140 C 226 170, 205 203, 205 203 Z" fill="none"/>
+    
+    <!-- Main Center Flame Spike (Shooting upwards) -->
+    <path d="M 200 204 C 180 195, 175 160, 192 120 C 208 80, 220 40, 223 30 C 224 45, 230 75, 255 105 C 285 140, 280 180, 238 203 C 225 206, 210 206, 200 204 Z" fill="url(#flameGrad)"/>
+    
+    <!-- Inner Flame Cutouts / Fluid Waves -->
+    <path d="M 216 48 C 215 65, 204 90, 195 122 C 187 150, 192 178, 205 192 C 196 178, 194 152, 203 128 C 213 100, 220 70, 216 48 Z" fill="url(#flameGradCore)"/>
+    
+    <path d="M 223 75 C 235 98, 256 122, 250 152 C 245 177, 226 195, 215 198 C 230 190, 245 172, 246 148 C 247 122, 232 98, 223 75 Z" fill="url(#flameGradCore)"/>
+
+    <!-- Base Flame Curve Accent -->
+    <path d="M 130 160 C 120 185, 145 205, 190 205 C 230 205, 260 180, 265 160 C 255 185, 225 200, 190 200 C 155 200, 135 182, 130 160 Z" fill="url(#flameGradDark)"/>
+  </g>
+
+  <!-- Corporate Typography -->
+  <text x="200" y="255" text-anchor="middle" font-family="'Times New Roman', Times, serif" font-weight="bold" font-size="21" fill="#2d3768" letter-spacing="1.2">PT. PLASTIK MEMBARA BKS</text>
+</svg>
