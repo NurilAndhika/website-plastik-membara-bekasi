@@ -1,4 +1,6 @@
-/* Global Reset */
+/* ========================================================
+   GLOBAL RESET & BASE
+   ======================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -31,7 +33,9 @@ body.dark-mode {
   margin: auto;
 }
 
-/* Top Bar */
+/* ========================================================
+   TOP BAR
+   ======================================================== */
 .top-bar {
   background-color: #1a365d;
   color: #e2e8f0;
@@ -52,11 +56,29 @@ body.dark-mode .top-bar {
   gap: 0.5rem;
 }
 
+.contact-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
 .contact-info span {
-  margin-right: 1.2rem;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+}
+
+.top-phone-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.top-phone-link:hover {
+  color: #25d366;
 }
 
 .top-socials a {
@@ -69,11 +91,13 @@ body.dark-mode .top-bar {
   color: #63b3ed;
 }
 
-/* Navbar */
+/* ========================================================
+   NAVBAR & HEADER
+   ======================================================== */
 nav {
   background-color: #ffffff;
   border-bottom: 2px solid #cbd5e0;
-  padding: 0.75rem 0;
+  padding: 0.6rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -99,10 +123,17 @@ nav .container {
   text-decoration: none;
 }
 
+/* 1. UKURAN LOGO NAVBAR: 48px */
 .logo-img {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   object-fit: contain;
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 2px;
+  display: block;
 }
 
 .logo-text {
@@ -123,7 +154,7 @@ body.dark-mode .logo-text {
   gap: 0.8rem;
 }
 
-/* Tombol Dark / Light Mode */
+/* Theme Toggle Button */
 .theme-btn {
   background-color: #ebf4fa;
   color: #1a202c;
@@ -143,7 +174,6 @@ body.dark-mode .theme-btn {
   background-color: #0b1120;
   color: #f8fafc;
   border-color: #24344d;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .theme-btn:hover {
@@ -156,7 +186,7 @@ body.dark-mode .theme-btn:hover {
   border-color: #38bdf8;
 }
 
-/* Tombol Pembuka Menu (Sidebar) */
+/* Mobile Toggle */
 .menu-toggle-btn {
   background-color: #ffffff;
   border: 1px solid #cbd5e0;
@@ -169,18 +199,15 @@ body.dark-mode .theme-btn:hover {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  box-shadow: 0 2px 5px rgba(26, 54, 93, 0.08);
-  transition: all 0.25s ease;
 }
 
 body.dark-mode .menu-toggle-btn {
   background-color: #131d31;
   border-color: #24344d;
   color: #93c5fd;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Status Pengguna Masuk */
+/* User Badge */
 .user-logged-badge {
   display: inline-flex;
   align-items: center;
@@ -214,7 +241,65 @@ body.dark-mode .user-logged-badge {
   color: #c53030;
 }
 
-/* Admin Controls Banner */
+/* ========================================================
+   GLOBAL BUTTONS
+   ======================================================== */
+.btn-primary {
+  background-color: #2b6cb0;
+  color: #ffffff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #38bdf8;
+  color: #0b1120;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #1ebd56;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+.style-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ========================================================
+   ADMIN BAR & PANEL
+   ======================================================== */
 .admin-action-bar {
   background: #2b6cb0;
   color: #ffffff;
@@ -250,7 +335,9 @@ body.dark-mode .admin-action-bar {
   background-color: #ebf4fa;
 }
 
-/* Modal Box Global */
+/* ========================================================
+   MODAL STYLING
+   ======================================================== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -266,6 +353,7 @@ body.dark-mode .admin-action-bar {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  padding: 1rem;
 }
 
 .modal-overlay.active {
@@ -277,8 +365,8 @@ body.dark-mode .admin-action-bar {
   background-color: #ffffff;
   border-radius: 12px;
   width: 90%;
-  max-width: 450px;
-  box-shadow: 0 10px 30px rgba(26, 54, 93, 0.08);
+  max-width: 460px;
+  box-shadow: 0 10px 30px rgba(26, 54, 93, 0.15);
   border: 1px solid #cbd5e0;
   overflow: hidden;
   max-height: 90vh;
@@ -288,7 +376,6 @@ body.dark-mode .admin-action-bar {
 body.dark-mode .modal-box {
   background-color: #131d31;
   border-color: #24344d;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .modal-header {
@@ -394,9 +481,69 @@ body.dark-mode .divider span {
   font-size: 0.9rem;
   margin-bottom: 1rem;
   text-align: center;
+  font-weight: 700;
 }
 
-/* Sidebar Drawer Menu */
+/* Box Tarif / Harga Khusus Sekretaris */
+.price-box {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed #cbd5e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+body.dark-mode .price-box {
+  border-top-color: #24344d;
+}
+
+.price-tag {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  background-color: #ebf4fa;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+}
+
+body.dark-mode .price-tag {
+  color: #38bdf8;
+  background-color: #172554;
+}
+
+.btn-edit-price {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+}
+
+body.dark-mode .btn-edit-price {
+  background-color: #450a0a;
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
+
+.btn-edit-price:hover {
+  background-color: #fecaca;
+}
+
+/* ========================================================
+   SIDEBAR DRAWER MENU
+   ======================================================== */
 .sidebar-overlay {
   position: fixed;
   top: 0;
@@ -424,7 +571,7 @@ body.dark-mode .divider span {
   max-width: 85vw;
   height: 100vh;
   background-color: #ffffff;
-  box-shadow: -10px 0 35px rgba(26, 54, 93, 0.08);
+  box-shadow: -10px 0 35px rgba(26, 54, 93, 0.15);
   border-left: 1px solid #cbd5e0;
   z-index: 999;
   transform: translateX(100%);
@@ -437,7 +584,6 @@ body.dark-mode .divider span {
 body.dark-mode .sidebar {
   background-color: #131d31;
   border-left-color: #24344d;
-  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.4);
 }
 
 .sidebar.active {
@@ -473,7 +619,6 @@ body.dark-mode .sidebar-header h3 {
   color: #1a202c;
   cursor: pointer;
   padding: 0.3rem 0.6rem;
-  border-radius: 6px;
 }
 
 body.dark-mode .sidebar-close-btn {
@@ -501,7 +646,6 @@ body.dark-mode .sidebar-close-btn {
   font-size: 1.1rem;
   font-weight: 700;
   border-radius: 8px;
-  transition: all 0.2s ease;
 }
 
 body.dark-mode .sidebar-links a {
@@ -530,61 +674,9 @@ body.dark-mode .sidebar-links a:hover {
   color: #38bdf8;
 }
 
-/* Tombol Global */
-.btn-primary {
-  background-color: #2b6cb0;
-  color: #ffffff;
-  padding: 0.8rem 1.8rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: none;
-  cursor: pointer;
-}
-
-body.dark-mode .btn-primary {
-  background-color: #38bdf8;
-  color: #0b1120;
-}
-
-.btn-primary:hover {
-  opacity: 0.92;
-}
-
-.btn-secondary {
-  background-color: #25d366;
-  color: #ffffff;
-  padding: 0.8rem 1.8rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  background-color: #1ebd56;
-}
-
-.btn-sm {
-  padding: 0.5rem 1.2rem;
-  font-size: 0.95rem;
-}
-
-.style-block {
-  width: 100%;
-  justify-content: center;
-}
-
-/* Hero Section */
+/* ========================================================
+   HERO SECTION
+   ======================================================== */
 .hero {
   padding: 4.5rem 0 4rem;
   background: linear-gradient(135deg, #eef7fc 0%, #d8ecfa 100%);
@@ -688,25 +780,50 @@ body.dark-mode .stat-item p {
 body.dark-mode .hero-logo-card {
   background-color: #131d31;
   border-color: #24344d;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .logo-wrapper {
-  background: radial-gradient(circle, #f7fafc 0%, #ebf4fa 100%);
-  padding: 2rem;
+  background: #ffffff;
+  padding: 1.5rem;
   border-radius: 12px;
   margin-bottom: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body.dark-mode .logo-wrapper {
-  background: radial-gradient(circle, #1e293b 0%, #0b1120 100%);
+/* 2. UKURAN LOGO HERO: 260px */
+.hero-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-logo-img {
+  width: 260px;
+  height: 260px;
+  min-width: 260px;
+  min-height: 260px;
   max-width: 100%;
-  height: auto;
-  max-height: 240px;
   object-fit: contain;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 12px;
+  display: block;
+}
+
+.hero-logo-caption {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a365d;
+  letter-spacing: 0.5px;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+}
+
+body.dark-mode .hero-logo-caption {
+  color: #93c5fd;
 }
 
 .hero-card-badge {
@@ -726,7 +843,9 @@ body.dark-mode .hero-card-badge {
   color: #0b1120;
 }
 
-/* Section Title & Subtitle */
+/* ========================================================
+   SECTION TITLE & SUBTITLE
+   ======================================================== */
 .section-subtitle {
   color: #2b6cb0;
   font-size: 0.95rem;
@@ -759,7 +878,9 @@ body.dark-mode .section-title {
   text-align: left;
 }
 
-/* About Section */
+/* ========================================================
+   ABOUT SECTION
+   ======================================================== */
 .about-section {
   padding: 5rem 0;
   background-color: #ffffff;
@@ -777,11 +898,14 @@ body.dark-mode .about-section {
 }
 
 .about-card {
-  background-color: #ebf4fa;
-  padding: 3rem;
+  background-color: #ffffff;
+  padding: 2rem;
   border-radius: 16px;
   text-align: center;
   border: 1px solid #cbd5e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body.dark-mode .about-card {
@@ -789,11 +913,39 @@ body.dark-mode .about-card {
   border-color: #24344d;
 }
 
-.about-symbol {
-  max-width: 100%;
-  height: 220px;
-  object-fit: contain;
+/* 3. UKURAN LOGO ABOUT: 240px */
+.about-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.5rem;
+}
+
+.about-symbol {
+  width: 240px;
+  height: 240px;
+  min-width: 240px;
+  min-height: 240px;
+  max-width: 100%;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 12px;
+  display: block;
+}
+
+.about-logo-caption {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a365d;
+  letter-spacing: 0.5px;
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+}
+
+body.dark-mode .about-logo-caption {
+  color: #93c5fd;
 }
 
 .about-experience {
@@ -861,30 +1013,33 @@ body.dark-mode .feature-item h4 {
   font-size: 0.95rem;
 }
 
-/* Services Section */
+/* ========================================================
+   SERVICES SECTION
+   ======================================================== */
 .services-section {
   padding: 5rem 0;
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.8rem;
 }
 
 .card {
   background-color: #ffffff;
-  padding: 2.2rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(26, 54, 93, 0.08);
   border: 1px solid #cbd5e0;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 body.dark-mode .card {
   background-color: #131d31;
   border-color: #24344d;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .card:hover {
@@ -921,14 +1076,17 @@ body.dark-mode .card h3 {
 
 .card p {
   color: #4a5568;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  flex: 1;
 }
 
 body.dark-mode .card p {
   color: #94a3b8;
 }
 
-/* Dokumentasi Galeri (Gudang, Alat, Transportasi) */
+/* ========================================================
+   GALLERY SECTION
+   ======================================================== */
 .gallery-section {
   padding: 5rem 0;
   background-color: #ffffff;
@@ -957,7 +1115,6 @@ body.dark-mode .gallery-section {
 body.dark-mode .gallery-card {
   background-color: #0b1120;
   border-color: #24344d;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-card:hover {
@@ -977,11 +1134,6 @@ body.dark-mode .gallery-card {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
-}
-
-.gallery-card:hover .gallery-img-wrapper img {
-  transform: scale(1.05);
 }
 
 .gallery-tag {
@@ -1040,14 +1192,15 @@ body.dark-mode .gallery-info h4 {
 .gallery-info p {
   font-size: 0.95rem;
   color: #4a5568;
-  line-height: 1.4;
 }
 
 body.dark-mode .gallery-info p {
   color: #94a3b8;
 }
 
-/* Jenis Plastik */
+/* ========================================================
+   BAHAN BAKU & ESTIMASI HARGA (LAIN-LAIN)
+   ======================================================== */
 .lain-lain {
   background: linear-gradient(180deg, #ebf4fa 0%, #d5e9f8 100%);
   padding: 5rem 0;
@@ -1063,7 +1216,7 @@ body.dark-mode .lain-lain {
 
 .list-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
@@ -1081,7 +1234,6 @@ body.dark-mode .lain-lain {
 body.dark-mode .item-box {
   background-color: #131d31;
   border-color: #24344d;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .item-box i {
@@ -1092,6 +1244,10 @@ body.dark-mode .item-box {
 
 body.dark-mode .item-box i {
   color: #38bdf8;
+}
+
+.item-content {
+  flex: 1;
 }
 
 .item-box h4 {
@@ -1113,7 +1269,9 @@ body.dark-mode .item-box p {
   color: #94a3b8;
 }
 
-/* Keunggulan Section */
+/* ========================================================
+   WHY US (KEUNGGULAN) SECTION
+   ======================================================== */
 .why-us-section {
   padding: 5rem 0;
   background-color: #ffffff;
@@ -1144,7 +1302,6 @@ body.dark-mode .why-us-section {
 body.dark-mode .why-card {
   background-color: #0b1120;
   border-color: #24344d;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .why-img-box {
@@ -1158,11 +1315,6 @@ body.dark-mode .why-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.why-card:hover .why-img-box img {
-  transform: scale(1.05);
 }
 
 .why-body {
@@ -1197,14 +1349,15 @@ body.dark-mode .why-card h4 {
 .why-card p {
   font-size: 0.95rem;
   color: #4a5568;
-  line-height: 1.4;
 }
 
 body.dark-mode .why-card p {
   color: #94a3b8;
 }
 
-/* Kontak Section */
+/* ========================================================
+   CONTACT SECTION
+   ======================================================== */
 .contact-section {
   padding: 5rem 0;
 }
@@ -1227,7 +1380,6 @@ body.dark-mode .why-card p {
 body.dark-mode .contact-card {
   background-color: #131d31;
   border-color: #24344d;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .form-group {
@@ -1301,12 +1453,17 @@ body.dark-mode .contact-info-card {
   margin-bottom: 0.8rem;
 }
 
+/* 4. UKURAN LOGO FORM KONTAK: 56px */
 .contact-logo-img {
-  height: 50px;
-  width: auto;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  object-fit: contain;
   background-color: #ffffff;
   padding: 4px;
-  border-radius: 6px;
+  border-radius: 8px;
+  display: block;
 }
 
 .info-logo-header h4 {
@@ -1352,7 +1509,20 @@ body.dark-mode .company-desc {
   font-size: 0.95rem;
 }
 
-/* Footer */
+.contact-wa-link {
+  color: #25d366;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-wa-link:hover {
+  color: #1ebd56;
+  text-decoration: underline;
+}
+
+/* ========================================================
+   FOOTER
+   ======================================================== */
 footer {
   background-color: #0f172a;
   color: #94a3b8;
@@ -1384,15 +1554,22 @@ body.dark-mode footer {
   font-weight: 700;
 }
 
+/* 5. UKURAN LOGO FOOTER: 40px */
 .footer-logo {
-  height: 35px;
-  width: auto;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  object-fit: contain;
   background-color: #ffffff;
   padding: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
+  display: block;
 }
 
-/* Responsive Styles */
+/* ========================================================
+   RESPONSIVE LAYOUT
+   ======================================================== */
 @media (max-width: 992px) {
   .hero-container,
   .about-grid,

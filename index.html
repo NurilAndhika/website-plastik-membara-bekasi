@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Rongsokan Plastik Terpercaya di Bekasi. Jual Beli, Giling Plastik, Biji Plastik Daur Ulang."
+      content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Rongsokan Plastik Terpercaya di Bekasi."
     />
-    <meta
-      name="keywords"
-      content="Plastik Membara, PT Plastik Membara BKS, daur ulang plastik Bekasi, jual beli rongsokan plastik, giling plastik, biji plastik HDPE PP PET, klaser plastik"
-    />
-    <meta name="author" content="PT. Plastik Membara BKS" />
     <title>
       PT. PLASTIK MEMBARA BKS | Industri Daur Ulang & Pengolahan Limbah Plastik
       Bekasi
     </title>
 
-    <!-- File CSS Eksternal -->
+    <!-- Hubungkan ke file CSS terpisah -->
     <link rel="stylesheet" href="style.css" />
 
     <!-- Font Awesome Icons -->
@@ -38,10 +33,20 @@
           <span
             ><i class="fa-solid fa-envelope"></i> ariesmdr007@gmail.com</span
           >
-          <span><i class="fa-solid fa-phone"></i> +62 87884811777</span>
+          <span>
+            <a
+              href="https://wa.me/6287884811777?text=Halo%20PT.%20Plastik%20Membara%20BKS,%20saya%20ingin%20bertanya"
+              target="_blank"
+              class="top-phone-link"
+            >
+              <i class="fa-brands fa-whatsapp"></i> +62 87884811777
+            </a>
+          </span>
         </div>
         <div class="top-socials">
-          <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://wa.me/6287884811777" target="_blank" title="WhatsApp"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
           <a href="#" title="Facebook"
             ><i class="fa-brands fa-facebook-f"></i
           ></a>
@@ -56,11 +61,15 @@
     <nav>
       <div class="container">
         <a href="#" class="logo" title="PT. PLASTIK MEMBARA BKS">
+          <!-- Logo Navbar (48px) -->
           <img
-            src="Plastik Membara BKS.jpg"
+            src="logo1.JPG - Copy (2)_2.jpeg"
             alt="Logo PT. PLASTIK MEMBARA BKS"
             class="logo-img"
-            onerror="this.src = 'logo.svg'"
+            onerror="
+              this.onerror = null;
+              this.src = 'logo1.JPG.jpeg';
+            "
           />
           <span class="logo-text">PT. PLASTIK MEMBARA BKS</span>
         </a>
@@ -82,7 +91,7 @@
             type="button"
             class="menu-toggle-btn"
             id="sidebarOpen"
-            aria-label="Buka Menu Navigasi"
+            aria-label="Buka Menu"
           >
             <i class="fa-solid fa-bars"></i>
           </button>
@@ -90,7 +99,7 @@
       </div>
     </nav>
 
-    <!-- Modal Login Admin & User -->
+    <!-- Modal Login -->
     <div class="modal-overlay" id="loginModal">
       <div class="modal-box">
         <div class="modal-header">
@@ -105,16 +114,19 @@
           </button>
 
           <div class="divider">
-            <span>atau masuk sebagai admin</span>
+            <span>atau masuk sebagai staf / sekretaris</span>
           </div>
 
           <form id="adminLoginForm">
             <div class="form-group">
               <label for="adminUsername"
-                ><i class="fa-solid fa-user-shield"></i> Username Admin</label
+                ><i class="fa-solid fa-user-shield"></i> Pilihan Akun</label
               >
               <select id="adminUsername" required>
-                <option value="" disabled selected>Pilih Akun Admin</option>
+                <option value="" disabled selected>Pilih Akun</option>
+                <option value="sekretaris">
+                  Sekretaris (Akses Khusus Kelola Harga)
+                </option>
                 <option value="admin1">Admin 1</option>
                 <option value="admin2">Admin 2</option>
                 <option value="admin3">Admin 3</option>
@@ -132,15 +144,75 @@
               />
             </div>
             <p id="loginError" class="login-error-msg"></p>
+            <button type="submit" class="btn-primary style-block">Masuk</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Ubah Tarif Layanan (Hanya Sekretaris) -->
+    <div class="modal-overlay" id="servicePriceModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3>Kelola Tarif Layanan</h3>
+          <button type="button" class="modal-close" id="servicePriceModalClose">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="servicePriceForm">
+            <input type="hidden" id="serviceTargetId" />
+            <div class="form-group">
+              <label id="serviceTargetLabel">Nama Layanan</label>
+              <input
+                type="text"
+                id="servicePriceInput"
+                placeholder="Contoh: Mulai Rp 2.000 / Kg"
+                required
+              />
+            </div>
             <button type="submit" class="btn-primary style-block">
-              Masuk Admin
+              <i class="fa-solid fa-check"></i> Simpan Tarif
             </button>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Modal Tambah Foto Dokumentasi Galeri (Khusus Admin) -->
+    <!-- Modal Ubah Harga Barang (Hanya Sekretaris) -->
+    <div class="modal-overlay" id="materialPriceModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3>Kelola Harga Acuan Barang</h3>
+          <button
+            type="button"
+            class="modal-close"
+            id="materialPriceModalClose"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="materialPriceForm">
+            <input type="hidden" id="materialTargetId" />
+            <div class="form-group">
+              <label id="materialTargetLabel">Jenis Plastik</label>
+              <input
+                type="text"
+                id="materialPriceInput"
+                placeholder="Contoh: Rp 6.000 – Rp 8.500 / Kg"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-primary style-block">
+              <i class="fa-solid fa-check"></i> Simpan Harga Barang
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Tambah Galeri -->
     <div class="modal-overlay" id="galleryModal">
       <div class="modal-box">
         <div class="modal-header">
@@ -153,37 +225,35 @@
           <form id="addGalleryForm">
             <div class="form-group">
               <label for="galleryKategori"
-                ><i class="fa-solid fa-tag"></i> Kategori / Nama Bagian</label
+                ><i class="fa-solid fa-tag"></i> Kategori</label
               >
               <input
                 type="text"
                 id="galleryKategori"
-                placeholder="Contoh: Bagian Gudang / Alat & Mesin / Transportasi"
+                placeholder="Contoh: Bagian Gudang"
                 required
               />
             </div>
             <div class="form-group">
               <label for="galleryDeskripsi"
-                ><i class="fa-solid fa-align-left"></i> Keterangan /
-                Deskripsi</label
+                ><i class="fa-solid fa-align-left"></i> Deskripsi</label
               >
               <textarea
                 id="galleryDeskripsi"
                 rows="2"
-                placeholder="Tuliskan keterangan fasilitas atau operasional..."
+                placeholder="Keterangan foto..."
                 required
               ></textarea>
             </div>
             <div class="form-group">
               <label for="galleryFileInput"
-                ><i class="fa-solid fa-upload"></i> Pilih File Gambar</label
+                ><i class="fa-solid fa-upload"></i> Upload File Foto</label
               >
               <input type="file" id="galleryFileInput" accept="image/*" />
             </div>
             <div class="form-group">
               <label for="galleryUrlInput"
-                ><i class="fa-solid fa-link"></i> Atau Masukkan URL
-                Gambar</label
+                ><i class="fa-solid fa-link"></i> Atau Masukkan URL Foto</label
               >
               <input
                 type="text"
@@ -192,18 +262,18 @@
               />
             </div>
             <button type="submit" class="btn-primary style-block">
-              <i class="fa-solid fa-plus"></i> Publikasikan ke Dokumentasi
+              <i class="fa-solid fa-plus"></i> Simpan
             </button>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Modal Tambah Keunggulan (Khusus Admin) -->
+    <!-- Modal Tambah Keunggulan -->
     <div class="modal-overlay" id="featureModal">
       <div class="modal-box">
         <div class="modal-header">
-          <h3>Tambah Keunggulan Layanan</h3>
+          <h3>Tambah Keunggulan</h3>
           <button type="button" class="modal-close" id="featureModalClose">
             &times;
           </button>
@@ -217,26 +287,24 @@
               <input
                 type="text"
                 id="featureJudul"
-                placeholder="Contoh: Layanan Konsultasi Cepat"
+                placeholder="Contoh: Layanan Cepat"
                 required
               />
             </div>
             <div class="form-group">
               <label for="featureDeskripsi"
-                ><i class="fa-solid fa-align-left"></i> Deskripsi
-                Keunggulan</label
+                ><i class="fa-solid fa-align-left"></i> Deskripsi</label
               >
               <textarea
                 id="featureDeskripsi"
                 rows="2"
-                placeholder="Tuliskan deskripsi keunggulan..."
+                placeholder="Deskripsi..."
                 required
               ></textarea>
             </div>
             <div class="form-group">
               <label for="featureFileInput"
-                ><i class="fa-solid fa-upload"></i> Pilih File Foto
-                (Opsional)</label
+                ><i class="fa-solid fa-upload"></i> Upload File Foto</label
               >
               <input type="file" id="featureFileInput" accept="image/*" />
             </div>
@@ -251,17 +319,15 @@
               />
             </div>
             <button type="submit" class="btn-primary style-block">
-              <i class="fa-solid fa-plus"></i> Simpan Keunggulan
+              <i class="fa-solid fa-plus"></i> Simpan
             </button>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Overlay Latar Belakang Menu Sidebar -->
+    <!-- Sidebar Overlay & Menu -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <!-- Menu Sidebar Drawer -->
     <aside class="sidebar" id="sidebarMenu">
       <div class="sidebar-header">
         <h3>Navigasi Menu</h3>
@@ -269,9 +335,9 @@
           type="button"
           class="sidebar-close-btn"
           id="sidebarClose"
-          aria-label="Tutup Menu"
+          aria-label="Tutup"
         >
-          <i class="fa-solid fa-xmark"></i>
+          &times;
         </button>
       </div>
       <ul class="sidebar-links">
@@ -287,16 +353,14 @@
           <a href="#layanan"><i class="fa-solid fa-gear"></i> Layanan</a>
         </li>
         <li>
-          <a href="#galeri"
-            ><i class="fa-solid fa-images"></i> Galeri & Operasional</a
-          >
+          <a href="#galeri"><i class="fa-solid fa-images"></i> Galeri</a>
         </li>
         <li>
           <a href="#keunggulan"><i class="fa-solid fa-medal"></i> Keunggulan</a>
         </li>
         <li>
           <a href="#jenis-plastik"
-            ><i class="fa-solid fa-recycle"></i> Jenis Plastik</a
+            ><i class="fa-solid fa-recycle"></i> Harga Plastik</a
           >
         </li>
         <li>
@@ -323,7 +387,7 @@
               ><i class="fa-solid fa-paper-plane"></i> Minta Penawaran Harga</a
             >
             <a
-              href="https://wa.me/6287884811777?text=Halo%20PT.%20Plastik%20Membara%20BKS,%20saya%20ingin%20bertanya%20mengenai%20daur%20ulang%20plastik"
+              href="https://wa.me/6287884811777"
               target="_blank"
               class="btn-secondary"
               ><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a
@@ -346,12 +410,19 @@
         </div>
         <div class="hero-logo-card">
           <div class="logo-wrapper">
-            <img
-              src="Plastik Membara BKS.jpg"
-              alt="Logo Utama PT. PLASTIK MEMBARA BKS"
-              class="hero-logo-img"
-              onerror="this.src = 'logo.svg'"
-            />
+            <!-- Logo Hero Section (260px) -->
+            <div class="hero-logo-container">
+              <img
+                src="logo1.JPG - Copy (2)_2.jpeg"
+                alt="Logo Utama PT. PLASTIK MEMBARA BKS"
+                class="hero-logo-img"
+                onerror="
+                  this.onerror = null;
+                  this.src = 'logo1.JPG.jpeg';
+                "
+              />
+              <h2 class="hero-logo-caption">PT. PLASTIK MEMBARA BKS</h2>
+            </div>
           </div>
           <div class="hero-card-badge">
             <i class="fa-solid fa-shield-halved"></i> Terverifikasi & Berlisensi
@@ -366,12 +437,19 @@
         <div class="about-grid">
           <div class="about-image-col">
             <div class="about-card">
-              <img
-                src="Plastik Membara BKS.jpg"
-                alt="Logo PT. Plastik Membara BKS"
-                class="about-symbol"
-                onerror="this.src = 'logo.svg'"
-              />
+              <!-- Logo About Section (240px) -->
+              <div class="about-logo-container">
+                <img
+                  src="logo1.JPG - Copy (2)_2.jpeg"
+                  alt="Simbol PT. PLASTIK MEMBARA BKS"
+                  class="about-symbol"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'logo1.JPG.jpeg';
+                  "
+                />
+                <h3 class="about-logo-caption">PT. PLASTIK MEMBARA BKS</h3>
+              </div>
               <div class="about-experience">
                 <span class="exp-years">10+</span>
                 <span class="exp-text"
@@ -393,8 +471,8 @@
             <p>
               Dengan armada pengangkutan dan mesin penggiling bertaraf modern,
               kami mampu mengolah puluhan ton plastik setiap harinya menjadi
-              bahan baku gilingan dan biji plastik daur ulang yang siap
-              digunakan kembali oleh berbagai sektor manufaktur.
+              bahan baku gilingan dan biji plastik daur ulang berkualitas
+              tinggi.
             </p>
             <div class="about-features">
               <div class="feature-item">
@@ -412,8 +490,8 @@
                 <div>
                   <h4>Penerimaan Skala Besar & Kecil</h4>
                   <p>
-                    Melayani penjualan dari pabrik industri, lapak pengepul,
-                    hingga pasokan rutin.
+                    Melayani pasokan rutin dari pabrik, lapak pengepul, hingga
+                    pengiriman tonase besar.
                   </p>
                 </div>
               </div>
@@ -423,84 +501,33 @@
       </div>
     </section>
 
-    <!-- Layanan Utama Section -->
+    <!-- Layanan Section -->
     <section class="services-section" id="layanan">
       <div class="container">
         <h2 class="section-subtitle center">LAYANAN UTAMA</h2>
         <h3 class="section-title">Solusi Komprehensif Pengolahan Plastik</h3>
 
-        <div class="cards-grid">
-          <div class="card">
-            <div class="card-icon">
-              <i class="fa-solid fa-truck-ramp-box"></i>
-            </div>
-            <h3>Jual Beli Rongsokan Plastik</h3>
-            <p>
-              Menerima dan membeli berbagai limbah rongsokan plastik industri &
-              rumah tangga dengan harga pasaran kompetitif dan penimbangan
-              transparan.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
-            <h3>Jasa Giling Plastik</h3>
-            <p>
-              Layanan pencacahan dan penggilingan plastik presisi untuk
-              menghasilkan gilingan bersih siap proses Injection & Extrusion.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
-            <h3>Jasa Giling Atau Klaser Ringan Ataupun Berat</h3>
-            <p>
-              Layanan pemilahan, klasifikasi/klaser, hingga penggilingan
-              bertahap untuk berbagai jenis limbah plastik kategori ringan
-              maupun berbobot berat.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
-            <h3>Biji & Gilingan Plastik</h3>
-            <p>
-              Menyediakan pasokan biji plastik daur ulang (recycled plastic
-              pellets) dan gilingan kualitas super untuk kebutuhan pabrik
-              manufaktur.
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-icon"><i class="fa-solid fa-truck-field"></i></div>
-            <h3>Jemput Limbah Pabrik</h3>
-            <p>
-              Fasilitas armada penjemputan limbah plastik langsung ke lokasi
-              pabrik atau gudang Anda di area Bekasi, Cikarang, Karawang, &
-              Jabodetabek.
-            </p>
-          </div>
-        </div>
+        <div class="cards-grid" id="servicesContainer"></div>
       </div>
     </section>
 
-    <!-- Dokumentasi Operasional Section (Tempat Variabel Gudang, Alat, & Transportasi) -->
+    <!-- Galeri Section -->
     <section class="gallery-section" id="galeri">
       <div class="container">
         <h2 class="section-subtitle center">DOKUMENTASI OPERASIONAL</h2>
         <h3 class="section-title">Fasilitas, Alat, Transportasi & Manajemen</h3>
 
-        <!-- Panel Aksi Admin untuk Dokumentasi Galeri -->
         <div class="admin-action-bar admin-panel-ui" id="galleryAdminBar">
           <span
             ><i class="fa-solid fa-user-shield"></i>
-            <strong>Mode Admin:</strong> Kelola foto gudang, mesin/alat,
-            transportasi, dan manajemen.</span
+            <strong>Panel Kelola:</strong> Dokumentasi operasional.</span
           >
           <button type="button" class="admin-btn-add" id="openAddGalleryModal">
-            <i class="fa-solid fa-circle-plus"></i> Tambah Foto Dokumentasi
+            <i class="fa-solid fa-circle-plus"></i> Tambah Foto
           </button>
         </div>
 
-        <div class="gallery-grid" id="galleryContainer">
-          <!-- Data Galeri dirender secara dinamis oleh JavaScript -->
-        </div>
+        <div class="gallery-grid" id="galleryContainer"></div>
       </div>
     </section>
 
@@ -508,84 +535,37 @@
     <section class="why-us-section" id="keunggulan">
       <div class="container">
         <h2 class="section-subtitle center">KEUNGGULAN KAMI</h2>
-        <h3 class="section-title">
-          Mengapa Bermitra Dengan PT. Plastik Membara BKS?
-        </h3>
+        <h3 class="section-title">Mengapa Bermitra Dengan Kami?</h3>
 
-        <!-- Panel Aksi Admin untuk Keunggulan -->
         <div class="admin-action-bar admin-panel-ui" id="featureAdminBar">
           <span
             ><i class="fa-solid fa-user-shield"></i>
-            <strong>Mode Admin:</strong> Kelola nilai keunggulan pelayanan
-            bisnis perusahaan.</span
+            <strong>Panel Kelola:</strong> Nilai keunggulan perusahaan.</span
           >
           <button type="button" class="admin-btn-add" id="openAddFeatureModal">
             <i class="fa-solid fa-circle-plus"></i> Tambah Keunggulan
           </button>
         </div>
 
-        <div class="why-grid" id="featuresContainer">
-          <!-- Kartu Keunggulan dirender secara dinamis oleh JavaScript -->
-        </div>
+        <div class="why-grid" id="featuresContainer"></div>
       </div>
     </section>
 
-    <!-- Jenis Plastik Section -->
+    <!-- Bahan Baku & Harga Barang Section -->
     <section class="lain-lain" id="jenis-plastik">
       <div class="container">
-        <h2 class="section-subtitle center">BAHAN BAKU & JENIS PLASTIK</h2>
-        <h3 class="section-title">Kategori Limbah Plastik Yang Kami Olah</h3>
+        <h2 class="section-subtitle center">
+          BAHAN BAKU & ESTIMASI HARGA BARANG
+        </h2>
+        <h3 class="section-title">
+          Kategori Limbah Plastik & Acuan Nilai Jual/Beli
+        </h3>
 
-        <div class="list-items">
-          <div class="item-box">
-            <i class="fa-solid fa-bottle-water"></i>
-            <div>
-              <h4>PET / PETE (Polyethylene Terephthalate)</h4>
-              <p>Botol minuman bening, tempat makanan, packaging PET</p>
-            </div>
-          </div>
-          <div class="item-box">
-            <i class="fa-solid fa-prescription-bottle"></i>
-            <div>
-              <h4>HDPE (High-Density Polyethylene)</h4>
-              <p>Jeriken, botol oli, botol sampo, tutup botol, drum plastik</p>
-            </div>
-          </div>
-          <div class="item-box">
-            <i class="fa-solid fa-box-archive"></i>
-            <div>
-              <h4>PP (Polypropylene)</h4>
-              <p>
-                Ember, gelas plastik, keranjang buah, kursi monobloc, mainan
-              </p>
-            </div>
-          </div>
-          <div class="item-box">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <div>
-              <h4>LDPE (Low-Density Polyethylene)</h4>
-              <p>Plastik infus, kantong plastik bening, film packaging</p>
-            </div>
-          </div>
-          <div class="item-box">
-            <i class="fa-solid fa-car"></i>
-            <div>
-              <h4>ABS & PS (Polystyrene)</h4>
-              <p>Casing elektronik, komponen otomotif, perkakas plastik</p>
-            </div>
-          </div>
-          <div class="item-box">
-            <i class="fa-solid fa-industry"></i>
-            <div>
-              <h4>Limbah Reject Pabrik</h4>
-              <p>Afval plastik, runner injection, sisa cetakan pabrik</p>
-            </div>
-          </div>
-        </div>
+        <div class="list-items" id="materialsContainer"></div>
       </div>
     </section>
 
-    <!-- Formulir Kontak & Penawaran -->
+    <!-- Formulir Kontak Section -->
     <section class="contact-section" id="kontak">
       <div class="container">
         <h2 class="section-subtitle center">HUBUNGI KAMI</h2>
@@ -632,9 +612,6 @@
                   <option value="Beli Gilingan / Biji Plastik">
                     Beli Gilingan / Biji Plastik
                   </option>
-                  <option value="Jasa Giling Plastik">
-                    Jasa Giling Plastik
-                  </option>
                   <option value="Jasa Giling Atau Klaser Ringan Ataupun Berat">
                     Jasa Giling Atau Klaser Ringan Ataupun Berat
                   </option>
@@ -645,8 +622,8 @@
               </div>
               <div class="form-group">
                 <label for="perkiraan"
-                  ><i class="fa-solid fa-weight-hanging"></i> Perkiraan Berat
-                  (Kg / Ton)</label
+                  ><i class="fa-solid fa-weight-hanging"></i> Estimasi Berat (Kg
+                  / Ton)</label
                 >
                 <input
                   type="text"
@@ -656,36 +633,38 @@
               </div>
               <div class="form-group">
                 <label for="pesan"
-                  ><i class="fa-solid fa-comment"></i> Detail Pesan / Alamat
-                  Penjemputan</label
+                  ><i class="fa-solid fa-comment"></i> Detail Pesan /
+                  Alamat</label
                 >
                 <textarea
                   id="pesan"
                   rows="4"
-                  placeholder="Tuliskan spesifikasi plastik, lokasi, atau pertanyaan Anda..."
+                  placeholder="Tuliskan spesifikasi limbah atau pertanyaan..."
                   required
                 ></textarea>
               </div>
               <button type="submit" class="btn-primary style-block">
                 <i class="fa-solid fa-paper-plane"></i> Kirim Permintaan
-                Penawaran
               </button>
             </form>
           </div>
 
           <div class="contact-info-card">
             <div class="info-logo-header">
+              <!-- Logo Form Kontak (56px) -->
               <img
-                src="Plastik Membara BKS.jpg"
-                alt="Logo PT. PLASTIK MEMBARA BKS"
+                src="logo1.JPG - Copy (2)_2.jpeg"
+                alt="Logo Form Kontak PT. PLASTIK MEMBARA BKS"
                 class="contact-logo-img"
-                onerror="this.src = 'logo.svg'"
+                onerror="
+                  this.onerror = null;
+                  this.src = 'logo1.JPG.jpeg';
+                "
               />
               <h4>PT. PLASTIK MEMBARA BKS</h4>
             </div>
             <p class="company-desc">
-              Pusat daur ulang & industri penggilingan limbah plastik terpercaya
-              di Bekasi.
+              Pusat daur ulang & pengolahan limbah plastik terpercaya di Bekasi.
             </p>
 
             <div class="info-list">
@@ -695,7 +674,7 @@
                   <strong>Alamat Kantor & Pabrik:</strong>
                   <p>
                     Jl. Raya Industri Bekasi No. 88, Kertamukti, Kec. Cibitung,
-                    Kabupaten Bekasi, Jawa Barat 17520
+                    Kab. Bekasi, Jawa Barat 17520
                   </p>
                 </div>
               </div>
@@ -717,7 +696,14 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 <div>
                   <strong>Hotline WhatsApp:</strong>
-                  <p>+62 87884811777</p>
+                  <p>
+                    <a
+                      href="https://wa.me/6287884811777"
+                      target="_blank"
+                      class="contact-wa-link"
+                      >+62 87884811777</a
+                    >
+                  </p>
                 </div>
               </div>
             </div>
@@ -730,25 +716,106 @@
     <footer>
       <div class="container footer-content">
         <div class="footer-brand">
+          <!-- Logo Footer (40px) -->
           <img
-            src="Plastik Membara BKS.jpg"
-            alt="PT. PLASTIK MEMBARA BKS"
+            src="logo1.JPG - Copy (2)_2.jpeg"
+            alt="Logo Footer PT. PLASTIK MEMBARA BKS"
             class="footer-logo"
-            onerror="this.src = 'logo.svg'"
+            onerror="
+              this.onerror = null;
+              this.src = 'logo1.JPG.jpeg';
+            "
           />
           <span>PT. PLASTIK MEMBARA BKS</span>
         </div>
-        <p>
-          &copy; 2026 PT. PLASTIK MEMBARA BKS. All Rights Reserved. Hak Cipta
-          Dilindungi Undang-Undang.
-        </p>
+        <p>&copy; 2026 PT. PLASTIK MEMBARA BKS. All Rights Reserved.</p>
       </div>
     </footer>
 
-    <!-- Script Logika dan Administrasi Interaktif -->
+    <!-- Logika Javascript Interaktif -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Data Default Galeri Dokumentasi (Termasuk Gudang, Alat/Mesin, & Transportasi/Armada)
+        const defaultServices = [
+          {
+            id: "s1",
+            icon: "fa-truck-ramp-box",
+            judul: "Jual Beli Rongsokan Plastik",
+            deskripsi:
+              "Menerima dan membeli berbagai limbah rongsokan plastik industri & rumah tangga dengan harga pasaran kompetitif.",
+            harga: "Harga Mengikuti Pasaran Tertinggi",
+          },
+          {
+            id: "s3",
+            icon: "fa-layer-group",
+            judul: "Jasa Giling / Klaser Ringan & Berat",
+            deskripsi:
+              "Layanan pemilahan, klasifikasi/klaser, hingga penggilingan bertahap untuk berbagai jenis limbah plastik.",
+            harga: "Mulai Rp 2.000 / Kg",
+          },
+          {
+            id: "s4",
+            icon: "fa-cubes",
+            judul: "Biji & Gilingan Plastik",
+            deskripsi:
+              "Menyediakan pasokan biji plastik daur ulang (recycled pellets) dan gilingan kualitas super.",
+            harga: "Mulai Rp 9.500 / Kg",
+          },
+          {
+            id: "s5",
+            icon: "fa-truck-field",
+            judul: "Jemput Limbah Pabrik",
+            deskripsi:
+              "Fasilitas armada penjemputan limbah plastik langsung ke lokasi pabrik atau gudang Anda di Jabodetabek.",
+            harga: "Gratis Jemput (Min. Tonase Tertentu)",
+          },
+        ];
+
+        const defaultMaterials = [
+          {
+            id: "m1",
+            icon: "fa-bottle-water",
+            nama: "PET / PETE (Polyethylene Terephthalate)",
+            deskripsi: "Botol minuman bening, tempat makanan, packaging PET",
+            harga: "Rp 5.500 – Rp 7.500 / Kg",
+          },
+          {
+            id: "m2",
+            icon: "fa-prescription-bottle",
+            nama: "HDPE (High-Density Polyethylene)",
+            deskripsi:
+              "Jeriken, botol oli, botol sampo, tutup botol, drum plastik",
+            harga: "Rp 6.000 – Rp 8.800 / Kg",
+          },
+          {
+            id: "m3",
+            icon: "fa-box-archive",
+            nama: "PP (Polypropylene)",
+            deskripsi: "Ember, gelas plastik, keranjang buah, kursi monobloc",
+            harga: "Rp 5.000 – Rp 7.800 / Kg",
+          },
+          {
+            id: "m4",
+            icon: "fa-bag-shopping",
+            nama: "LDPE (Low-Density Polyethylene)",
+            deskripsi: "Plastik infus, kantong plastik bening, film packaging",
+            harga: "Rp 4.500 – Rp 6.800 / Kg",
+          },
+          {
+            id: "m5",
+            icon: "fa-car",
+            nama: "ABS & PS (Polystyrene)",
+            deskripsi: "Casing elektronik, komponen otomotif, perkakas plastik",
+            harga: "Rp 8.000 – Rp 12.000 / Kg",
+          },
+          {
+            id: "m6",
+            icon: "fa-industry",
+            nama: "Limbah Reject Pabrik",
+            deskripsi: "Afval plastik, runner injection, sisa cetakan pabrik",
+            harga: "Negosiasi Sesuai Kondisi",
+          },
+        ];
+
         const defaultGallery = [
           {
             id: "g1",
@@ -760,39 +827,35 @@
             id: "g2",
             kategori: "Bagian Gudang",
             deskripsi:
-              "Area penampungan & penyimpanan bahan baku limbah plastik kapasitas puluhan ton.",
+              "Area penampungan & penyimpanan limbah kapasitas puluhan ton.",
             foto: "images/gudang.jpg",
           },
           {
             id: "g3",
-            kategori: "Alat & Mesin Penggiling",
-            deskripsi:
-              "Fasilitas pencacah dan penggilingan plastik modern dengan presisi tinggi dan seragam.",
+            kategori: "Alat & Mesin",
+            deskripsi: "Fasilitas penggilingan plastik presisi modern.",
             foto: "images/alat.jpg",
           },
           {
             id: "g4",
-            kategori: "Transportasi & Armada Operasional",
-            deskripsi:
-              "Armada logistik dan truk operasional penjemputan limbah plastik pabrik rekanan.",
+            kategori: "Transportasi",
+            deskripsi: "Armada logistik penjemputan limbah.",
             foto: "images/pengantaran.jpg",
           },
           {
             id: "g5",
             kategori: "Bagian Kantor",
-            deskripsi:
-              "Pusat layanan administrasi & verifikasi timbangan transaksi pelanggan.",
+            deskripsi: "Pusat verifikasi transaksi dan administrasi.",
             foto: "images/kantor.jpg",
           },
         ];
 
-        // Data Default Keunggulan Perusahaan
         const defaultFeatures = [
           {
             id: "f1",
             judul: "Timbangan Akurat & Transparan",
             deskripsi:
-              "Sistem penimbangan digital terkalibrasi berkala untuk kepastian berat dan kejujuran transaksi.",
+              "Sistem penimbangan digital terkalibrasi berkala untuk kejujuran transaksi.",
             icon: "fa-scale-balanced",
             foto: "",
           },
@@ -800,15 +863,15 @@
             id: "f2",
             judul: "Harga Terbaik & Pembayaran Cepat",
             deskripsi:
-              "Penawaran harga rongsokan kompetitif dengan pembayaran langsung tunai/transfer saat transaksi.",
+              "Harga rongsokan kompetitif dengan pembayaran langsung saat transaksi.",
             icon: "fa-money-bill-wave",
             foto: "",
           },
           {
             id: "f3",
-            judul: "Kapasitas Pasokan Stabil",
+            judul: "Pasokan Stabil & Berkelanjutan",
             deskripsi:
-              "Mampu memenuhi pesanan gilingan dan biji plastik kualitas super skala tonase secara berkelanjutan.",
+              "Mampu memenuhi pasokan gilingan dan biji plastik secara kontinu.",
             icon: "fa-industry",
             foto: "",
           },
@@ -816,97 +879,150 @@
             id: "f4",
             judul: "Komitmen Industri Hijau",
             deskripsi:
-              "Proses daur ulang ramah lingkungan yang menekan limbah dan mendukung ekonomi sirkular.",
+              "Pengolahan ramah lingkungan yang menekan limbah dan mendukung ekonomi sirkular.",
             icon: "fa-leaf",
             foto: "",
           },
         ];
 
-        // Inisialisasi Data ke LocalStorage jika belum ada atau saat pertama kali load
-        if (!localStorage.getItem("customGallery_v2")) {
+        let storedServices = JSON.parse(
+          localStorage.getItem("siteServices_v1"),
+        );
+        if (!storedServices || storedServices.some((s) => s.id === "s2")) {
+          localStorage.setItem(
+            "siteServices_v1",
+            JSON.stringify(defaultServices),
+          );
+        }
+
+        if (!localStorage.getItem("siteMaterials_v1"))
+          localStorage.setItem(
+            "siteMaterials_v1",
+            JSON.stringify(defaultMaterials),
+          );
+        if (!localStorage.getItem("customGallery_v2"))
           localStorage.setItem(
             "customGallery_v2",
             JSON.stringify(defaultGallery),
           );
-        }
-        if (!localStorage.getItem("customFeatures_v2")) {
+        if (!localStorage.getItem("customFeatures_v2"))
           localStorage.setItem(
             "customFeatures_v2",
             JSON.stringify(defaultFeatures),
           );
+
+        function checkIsSekretaris() {
+          return localStorage.getItem("currentUser") === "SEKRETARIS";
         }
 
-        // Render Dokumentasi Galeri
+        function checkCanManageContent() {
+          const user = localStorage.getItem("currentUser") || "";
+          return user === "SEKRETARIS" || user.startsWith("ADMIN");
+        }
+
+        function renderServices() {
+          const container = document.getElementById("servicesContainer");
+          const items = (
+            JSON.parse(localStorage.getItem("siteServices_v1")) || []
+          ).filter((item) => item.id !== "s2");
+          const isSekretaris = checkIsSekretaris();
+
+          container.innerHTML = items
+            .map(
+              (item) => `
+                <div class="card">
+                  <div class="card-icon"><i class="fa-solid ${item.icon}"></i></div>
+                  <h3>${item.judul}</h3>
+                  <p>${item.deskripsi}</p>
+                  <div class="price-box">
+                    <span class="price-tag"><i class="fa-solid fa-tag"></i> ${item.harga || "Hubungi Kami"}</span>
+                    ${isSekretaris ? `<button type="button" class="btn-edit-price" onclick="openEditServicePrice('${item.id}')"><i class="fa-solid fa-pen-to-square"></i> Ubah Tarif (Sekretaris)</button>` : ""}
+                  </div>
+                </div>
+              `,
+            )
+            .join("");
+        }
+
+        function renderMaterials() {
+          const container = document.getElementById("materialsContainer");
+          const items =
+            JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
+          const isSekretaris = checkIsSekretaris();
+
+          container.innerHTML = items
+            .map(
+              (item) => `
+                <div class="item-box">
+                  <i class="fa-solid ${item.icon}"></i>
+                  <div class="item-content">
+                    <h4>${item.nama}</h4>
+                    <p>${item.deskripsi}</p>
+                    <div class="price-box">
+                      <span class="price-tag"><i class="fa-solid fa-coins"></i> ${item.harga || "Negosiasi"}</span>
+                      ${isSekretaris ? `<button type="button" class="btn-edit-price" onclick="openEditMaterialPrice('${item.id}')"><i class="fa-solid fa-pen-to-square"></i> Ubah Harga (Sekretaris)</button>` : ""}
+                    </div>
+                  </div>
+                </div>
+              `,
+            )
+            .join("");
+        }
+
         function renderGallery() {
           const container = document.getElementById("galleryContainer");
           const items =
             JSON.parse(localStorage.getItem("customGallery_v2")) || [];
-          const isAdmin = checkIsAdmin();
+          const canManage = checkCanManageContent();
 
           container.innerHTML = items
             .map(
               (item) => `
-                    <div class="gallery-card">
-                        ${isAdmin ? `<button class="card-delete-btn" onclick="deleteGalleryItem('${item.id}')" title="Hapus Foto"><i class="fa-solid fa-trash"></i></button>` : ""}
-                        <div class="gallery-img-wrapper">
-                            <img src="${item.foto}" alt="${item.kategori}" onerror="this.src='Plastik Membara BKS.jpg'">
-                            <span class="gallery-tag">${item.kategori}</span>
-                        </div>
-                        <div class="gallery-info">
-                            <h4>${item.kategori}</h4>
-                            <p>${item.deskripsi}</p>
-                        </div>
-                    </div>
-                `,
+                <div class="gallery-card">
+                  ${canManage ? `<button class="card-delete-btn" onclick="deleteGalleryItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
+                  <div class="gallery-img-wrapper">
+                    <img src="${item.foto}" alt="${item.kategori}" onerror="this.src='images/gudang.jpg'">
+                    <span class="gallery-tag">${item.kategori}</span>
+                  </div>
+                  <div class="gallery-info">
+                    <h4>${item.kategori}</h4>
+                    <p>${item.deskripsi}</p>
+                  </div>
+                </div>
+              `,
             )
             .join("");
         }
 
-        // Render Keunggulan
         function renderFeatures() {
           const container = document.getElementById("featuresContainer");
           const items =
             JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
-          const isAdmin = checkIsAdmin();
+          const canManage = checkCanManageContent();
 
           container.innerHTML = items
             .map(
               (item) => `
-                    <div class="why-card">
-                        ${isAdmin ? `<button class="card-delete-btn" onclick="deleteFeatureItem('${item.id}')" title="Hapus Keunggulan"><i class="fa-solid fa-trash"></i></button>` : ""}
-                        ${
-                          item.foto
-                            ? `
-                            <div class="why-img-box">
-                                <img src="${item.foto}" alt="${item.judul}" onerror="this.src='Plastik Membara BKS.jpg'">
-                            </div>
-                        `
-                            : ""
-                        }
-                        <div class="why-body">
-                            <div class="why-icon"><i class="fa-solid ${item.icon || "fa-medal"}"></i></div>
-                            <h4>${item.judul}</h4>
-                            <p>${item.deskripsi}</p>
-                        </div>
-                    </div>
-                `,
+                <div class="why-card">
+                  ${canManage ? `<button class="card-delete-btn" onclick="deleteFeatureItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
+                  ${item.foto ? `<div class="why-img-box"><img src="${item.foto}" alt="${item.judul}"></div>` : ""}
+                  <div class="why-body">
+                    <div class="why-icon"><i class="fa-solid ${item.icon || "fa-medal"}"></i></div>
+                    <h4>${item.judul}</h4>
+                    <p>${item.deskripsi}</p>
+                  </div>
+                </div>
+              `,
             )
             .join("");
         }
 
-        // Validasi Status Admin
-        function checkIsAdmin() {
-          const user = localStorage.getItem("currentUser") || "";
-          return user.startsWith("ADMIN");
-        }
-
-        // Tampilkan atau Sembunyikan Panel Admin Berdasarkan Login
         function updateAdminUI() {
-          const isAdmin = checkIsAdmin();
+          const canManage = checkCanManageContent();
           const galleryAdminBar = document.getElementById("galleryAdminBar");
           const featureAdminBar = document.getElementById("featureAdminBar");
 
-          if (isAdmin) {
+          if (canManage) {
             document.body.classList.add("admin-mode-active");
             if (galleryAdminBar) galleryAdminBar.style.display = "flex";
             if (featureAdminBar) featureAdminBar.style.display = "flex";
@@ -915,15 +1031,107 @@
             if (galleryAdminBar) galleryAdminBar.style.display = "none";
             if (featureAdminBar) featureAdminBar.style.display = "none";
           }
+
+          renderServices();
+          renderMaterials();
           renderGallery();
           renderFeatures();
         }
 
-        // Hapus Item Dokumentasi Galeri
+        const servicePriceModal = document.getElementById("servicePriceModal");
+        const servicePriceForm = document.getElementById("servicePriceForm");
+        const servicePriceModalClose = document.getElementById(
+          "servicePriceModalClose",
+        );
+
+        window.openEditServicePrice = function (id) {
+          if (!checkIsSekretaris()) return;
+          const items =
+            JSON.parse(localStorage.getItem("siteServices_v1")) || [];
+          const item = items.find((s) => s.id === id);
+          if (item) {
+            document.getElementById("serviceTargetId").value = item.id;
+            document.getElementById("serviceTargetLabel").innerText =
+              `Tarif: ${item.judul}`;
+            document.getElementById("servicePriceInput").value =
+              item.harga || "";
+            servicePriceModal.classList.add("active");
+          }
+        };
+
+        if (servicePriceModalClose) {
+          servicePriceModalClose.addEventListener("click", () =>
+            servicePriceModal.classList.remove("active"),
+          );
+        }
+
+        if (servicePriceForm) {
+          servicePriceForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (!checkIsSekretaris()) return;
+            const id = document.getElementById("serviceTargetId").value;
+            const newPrice = document.getElementById("servicePriceInput").value;
+            let items =
+              JSON.parse(localStorage.getItem("siteServices_v1")) || [];
+            items = items.map((item) =>
+              item.id === id ? { ...item, harga: newPrice } : item,
+            );
+            localStorage.setItem("siteServices_v1", JSON.stringify(items));
+            servicePriceModal.classList.remove("active");
+            renderServices();
+            alert("Tarif berhasil diperbarui oleh Sekretaris!");
+          });
+        }
+
+        const materialPriceModal =
+          document.getElementById("materialPriceModal");
+        const materialPriceForm = document.getElementById("materialPriceForm");
+        const materialPriceModalClose = document.getElementById(
+          "materialPriceModalClose",
+        );
+
+        window.openEditMaterialPrice = function (id) {
+          if (!checkIsSekretaris()) return;
+          const items =
+            JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
+          const item = items.find((m) => m.id === id);
+          if (item) {
+            document.getElementById("materialTargetId").value = item.id;
+            document.getElementById("materialTargetLabel").innerText =
+              `Harga: ${item.nama}`;
+            document.getElementById("materialPriceInput").value =
+              item.harga || "";
+            materialPriceModal.classList.add("active");
+          }
+        };
+
+        if (materialPriceModalClose) {
+          materialPriceModalClose.addEventListener("click", () =>
+            materialPriceModal.classList.remove("active"),
+          );
+        }
+
+        if (materialPriceForm) {
+          materialPriceForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (!checkIsSekretaris()) return;
+            const id = document.getElementById("materialTargetId").value;
+            const newPrice =
+              document.getElementById("materialPriceInput").value;
+            let items =
+              JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
+            items = items.map((item) =>
+              item.id === id ? { ...item, harga: newPrice } : item,
+            );
+            localStorage.setItem("siteMaterials_v1", JSON.stringify(items));
+            materialPriceModal.classList.remove("active");
+            renderMaterials();
+            alert("Harga barang berhasil diperbarui oleh Sekretaris!");
+          });
+        }
+
         window.deleteGalleryItem = function (id) {
-          if (
-            confirm("Apakah Anda yakin ingin menghapus foto dokumentasi ini?")
-          ) {
+          if (confirm("Apakah yakin ingin menghapus foto ini?")) {
             let items =
               JSON.parse(localStorage.getItem("customGallery_v2")) || [];
             items = items.filter((item) => item.id !== id);
@@ -932,11 +1140,8 @@
           }
         };
 
-        // Hapus Item Keunggulan
         window.deleteFeatureItem = function (id) {
-          if (
-            confirm("Apakah Anda yakin ingin menghapus item keunggulan ini?")
-          ) {
+          if (confirm("Apakah yakin ingin menghapus keunggulan ini?")) {
             let items =
               JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
             items = items.filter((item) => item.id !== id);
@@ -945,7 +1150,6 @@
           }
         };
 
-        // Form Submit Dokumentasi Galeri Baru
         const addGalleryForm = document.getElementById("addGalleryForm");
         if (addGalleryForm) {
           addGalleryForm.addEventListener("submit", (e) => {
@@ -962,7 +1166,7 @@
                 id: "g_" + Date.now(),
                 kategori,
                 deskripsi,
-                foto: imgSrc || "Plastik Membara BKS.jpg",
+                foto: imgSrc || "images/gudang.jpg",
               });
               localStorage.setItem("customGallery_v2", JSON.stringify(items));
               renderGallery();
@@ -970,7 +1174,7 @@
                 .getElementById("galleryModal")
                 .classList.remove("active");
               addGalleryForm.reset();
-              alert("Dokumentasi operasional berhasil ditambahkan!");
+              alert("Dokumentasi berhasil disimpan!");
             }
 
             if (fileInput.files && fileInput.files[0]) {
@@ -983,7 +1187,6 @@
           });
         }
 
-        // Form Submit Keunggulan Baru
         const addFeatureForm = document.getElementById("addFeatureForm");
         if (addFeatureForm) {
           addFeatureForm.addEventListener("submit", (e) => {
@@ -1017,18 +1220,16 @@
               reader.onload = (event) => saveFeature(event.target.result);
               reader.readAsDataURL(fileInput.files[0]);
             } else {
-              saveFeature(urlInput);
+              saveGallery(urlInput);
             }
           });
         }
 
-        // Modal Buka / Tutup Galeri
         const galleryModal = document.getElementById("galleryModal");
         const openAddGalleryModal = document.getElementById(
           "openAddGalleryModal",
         );
         const galleryModalClose = document.getElementById("galleryModalClose");
-
         if (openAddGalleryModal)
           openAddGalleryModal.addEventListener("click", () =>
             galleryModal.classList.add("active"),
@@ -1038,13 +1239,11 @@
             galleryModal.classList.remove("active"),
           );
 
-        // Modal Buka / Tutup Keunggulan
         const featureModal = document.getElementById("featureModal");
         const openAddFeatureModal = document.getElementById(
           "openAddFeatureModal",
         );
         const featureModalClose = document.getElementById("featureModalClose");
-
         if (openAddFeatureModal)
           openAddFeatureModal.addEventListener("click", () =>
             featureModal.classList.add("active"),
@@ -1054,7 +1253,6 @@
             featureModal.classList.remove("active"),
           );
 
-        // Dark Mode / Light Mode
         const themeToggle = document.getElementById("themeToggle");
         const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
 
@@ -1080,7 +1278,6 @@
           });
         }
 
-        // Drawer Sidebar Menu
         const sidebarOpen = document.getElementById("sidebarOpen");
         const sidebarClose = document.getElementById("sidebarClose");
         const sidebarOverlay = document.getElementById("sidebarOverlay");
@@ -1115,7 +1312,6 @@
           });
         });
 
-        // Login & Kredensial Admin
         const loginModal = document.getElementById("loginModal");
         const loginModalClose = document.getElementById("loginModalClose");
         const authContainer = document.getElementById("authContainer");
@@ -1123,7 +1319,8 @@
         const loginError = document.getElementById("loginError");
         const googleLoginBtn = document.getElementById("googleLoginBtn");
 
-        const adminCredentials = {
+        const credentials = {
+          sekretaris: "acon1710",
           admin1: "bekasi1",
           admin2: "bekasi2",
           admin3: "bekasi3",
@@ -1133,13 +1330,13 @@
           const user = localStorage.getItem("currentUser");
           if (user) {
             authContainer.innerHTML = `
-                        <div class="user-logged-badge">
-                            <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
-                            <button type="button" class="btn-logout" id="logoutBtn" title="Keluar">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                            </button>
-                        </div>
-                    `;
+              <div class="user-logged-badge">
+                <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
+                <button type="button" class="btn-logout" id="logoutBtn" title="Keluar">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+              </div>
+            `;
             document
               .getElementById("logoutBtn")
               .addEventListener("click", () => {
@@ -1149,10 +1346,10 @@
               });
           } else {
             authContainer.innerHTML = `
-                        <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
-                            <i class="fa-solid fa-right-to-bracket"></i> Masuk
-                        </button>
-                    `;
+              <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
+                <i class="fa-solid fa-right-to-bracket"></i> Masuk
+              </button>
+            `;
             document
               .getElementById("loginBtnOpen")
               .addEventListener("click", () => {
@@ -1178,7 +1375,7 @@
             localStorage.setItem("currentUser", "User Google");
             closeLoginModal();
             renderAuthState();
-            alert("Berhasil masuk dengan akun Google!");
+            alert("Berhasil masuk.");
           });
         }
 
@@ -1188,29 +1385,28 @@
             const username = document.getElementById("adminUsername").value;
             const password = document.getElementById("adminPassword").value;
 
-            if (
-              adminCredentials[username] &&
-              adminCredentials[username] === password
-            ) {
-              localStorage.setItem("currentUser", username.toUpperCase());
+            if (credentials[username] && credentials[username] === password) {
+              const displayName = username.toUpperCase();
+              localStorage.setItem("currentUser", displayName);
               closeLoginModal();
               adminLoginForm.reset();
               renderAuthState();
-              alert(
-                `Selamat datang kembali, ${username.toUpperCase()}! Anda memiliki akses mengunggah & menghapus foto operasional.`,
-              );
+              if (displayName === "SEKRETARIS") {
+                alert(
+                  "Selamat datang SEKRETARIS! Anda memiliki wewenang khusus mengubah harga layanan dan barang.",
+                );
+              } else {
+                alert(`Selamat datang ${displayName}!`);
+              }
             } else {
-              loginError.textContent =
-                "Kata sandi atau pilihan admin tidak sesuai!";
+              loginError.textContent = "Kata sandi atau akun tidak sesuai!";
             }
           });
         }
 
-        // Inisialisasi awal
         renderAuthState();
       });
 
-      // WhatsApp Handler
       function handleFormSubmit(e) {
         e.preventDefault();
         const nama = document.getElementById("nama").value;
