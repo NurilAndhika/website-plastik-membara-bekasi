@@ -1,6 +1,42 @@
 /* ========================================================
-   GLOBAL RESET & BASE
+   GLOBAL RESET & VARIABEL TEMA (LIGHT & DARK MODE)
    ======================================================== */
+:root {
+  --bg-page: #ebf4fa;
+  --bg-surface: #ffffff;
+  --bg-subtle: #d5e9f8;
+  --bg-input: #f8fafc;
+  --blue-accent: #2b6cb0;
+  --blue-deep: #1a365d;
+  --blue-vibrant: #0077cc;
+  --text-dark: #1a202c;
+  --text-muted: #4a5568;
+  --border-color: #cbd5e0;
+  --shadow-color: rgba(26, 54, 93, 0.08);
+  --footer-bg: #0f172a;
+  --footer-text: #94a3b8;
+  --hero-bg: linear-gradient(135deg, #eef7fc 0%, #d8ecfa 100%);
+  --logo-radial: radial-gradient(circle, #f7fafc 0%, #ebf4fa 100%);
+}
+
+body.dark-mode {
+  --bg-page: #0b1120;
+  --bg-surface: #131d31;
+  --bg-subtle: #172554;
+  --bg-input: #1e293b;
+  --blue-accent: #38bdf8;
+  --blue-deep: #93c5fd;
+  --blue-vibrant: #38bdf8;
+  --text-dark: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #24344d;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --footer-bg: #050a14;
+  --footer-text: #64748b;
+  --hero-bg: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+  --logo-radial: radial-gradient(circle, #1e293b 0%, #0b1120 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,14 +53,9 @@ html {
 }
 
 body {
-  background-color: #ebf4fa;
-  color: #1a202c;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
   line-height: 1.6;
-}
-
-body.dark-mode {
-  background-color: #0b1120;
-  color: #f8fafc;
 }
 
 .container {
@@ -92,22 +123,16 @@ body.dark-mode .top-bar {
 }
 
 /* ========================================================
-   NAVBAR & HEADER
+   NAVBAR & HEADER (UNIVERSAL LAPTOP & HP)
    ======================================================== */
 nav {
-  background-color: #ffffff;
-  border-bottom: 2px solid #cbd5e0;
+  background-color: var(--bg-surface);
+  border-bottom: 2px solid var(--border-color);
   padding: 0.6rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(26, 54, 93, 0.08);
-}
-
-body.dark-mode nav {
-  background-color: #131d31;
-  border-bottom-color: #24344d;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 nav .container {
@@ -123,29 +148,32 @@ nav .container {
   text-decoration: none;
 }
 
-/* 1. UKURAN LOGO NAVBAR: 48px */
+/* 1. Ukuran Logo Navbar: 48px */
 .logo-img {
   width: 48px;
   height: 48px;
   min-width: 48px;
   min-height: 48px;
   object-fit: contain;
+  aspect-ratio: 1 / 1;
   background-color: #ffffff;
   border-radius: 6px;
   padding: 2px;
+  border: 1px solid var(--border-color);
   display: block;
 }
 
 .logo-text {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #1a365d;
+  color: var(--blue-deep);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-body.dark-mode .logo-text {
-  color: #93c5fd;
+/* Matikan navigasi horizontal agar fokus ke icon menu sidebar */
+.desktop-nav {
+  display: none !important;
 }
 
 .nav-actions {
@@ -154,11 +182,10 @@ body.dark-mode .logo-text {
   gap: 0.8rem;
 }
 
-/* Theme Toggle Button */
 .theme-btn {
-  background-color: #ebf4fa;
-  color: #1a202c;
-  border: 1px solid #cbd5e0;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -167,64 +194,40 @@ body.dark-mode .logo-text {
   align-items: center;
   justify-content: center;
   font-size: 1.05rem;
-  box-shadow: 0 2px 5px rgba(26, 54, 93, 0.08);
-}
-
-body.dark-mode .theme-btn {
-  background-color: #0b1120;
-  color: #f8fafc;
-  border-color: #24344d;
+  box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 .theme-btn:hover {
-  color: #2b6cb0;
-  border-color: #2b6cb0;
+  color: var(--blue-accent);
+  border-color: var(--blue-accent);
 }
 
-body.dark-mode .theme-btn:hover {
-  color: #38bdf8;
-  border-color: #38bdf8;
-}
-
-/* Mobile Toggle */
+/* Tombol Menu Hamburger: SELALU AKTIF di laptop & HP */
 .menu-toggle-btn {
-  background-color: #ffffff;
-  border: 1px solid #cbd5e0;
-  color: #1a365d;
+  display: inline-flex !important;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--blue-deep);
   width: 40px;
   height: 40px;
   border-radius: 8px;
   cursor: pointer;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
 }
 
-body.dark-mode .menu-toggle-btn {
-  background-color: #131d31;
-  border-color: #24344d;
-  color: #93c5fd;
-}
-
-/* User Badge */
 .user-logged-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background-color: #ebf4fa;
-  border: 1px solid #cbd5e0;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
   padding: 0.35rem 0.8rem;
   border-radius: 20px;
   font-weight: 700;
   font-size: 0.9rem;
-  color: #1a365d;
-}
-
-body.dark-mode .user-logged-badge {
-  background-color: #0b1120;
-  border-color: #24344d;
-  color: #93c5fd;
+  color: var(--blue-deep);
 }
 
 .btn-logout {
@@ -245,7 +248,7 @@ body.dark-mode .user-logged-badge {
    GLOBAL BUTTONS
    ======================================================== */
 .btn-primary {
-  background-color: #2b6cb0;
+  background-color: var(--blue-accent);
   color: #ffffff;
   padding: 0.8rem 1.8rem;
   border-radius: 6px;
@@ -362,20 +365,15 @@ body.dark-mode .admin-action-bar {
 }
 
 .modal-box {
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   border-radius: 12px;
   width: 90%;
   max-width: 460px;
-  box-shadow: 0 10px 30px rgba(26, 54, 93, 0.15);
-  border: 1px solid #cbd5e0;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid var(--border-color);
   overflow: hidden;
   max-height: 90vh;
   overflow-y: auto;
-}
-
-body.dark-mode .modal-box {
-  background-color: #131d31;
-  border-color: #24344d;
 }
 
 .modal-header {
@@ -383,20 +381,12 @@ body.dark-mode .modal-box {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid #cbd5e0;
-}
-
-body.dark-mode .modal-header {
-  border-bottom-color: #24344d;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modal-header h3 {
   font-size: 1.25rem;
-  color: #1a365d;
-}
-
-body.dark-mode .modal-header h3 {
-  color: #93c5fd;
+  color: var(--blue-deep);
 }
 
 .modal-close {
@@ -404,11 +394,7 @@ body.dark-mode .modal-header h3 {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #4a5568;
-}
-
-body.dark-mode .modal-close {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .modal-close:hover {
@@ -454,26 +440,17 @@ body.dark-mode .modal-close {
   left: 0;
   right: 0;
   height: 1px;
-  background-color: #cbd5e0;
+  background-color: var(--border-color);
   z-index: 1;
-}
-
-body.dark-mode .divider::before {
-  background-color: #24344d;
 }
 
 .divider span {
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   padding: 0 0.8rem;
-  color: #4a5568;
+  color: var(--text-muted);
   font-size: 0.85rem;
   z-index: 2;
-}
-
-body.dark-mode .divider span {
-  background-color: #131d31;
-  color: #94a3b8;
 }
 
 .login-error-msg {
@@ -484,36 +461,26 @@ body.dark-mode .divider span {
   font-weight: 700;
 }
 
-/* Box Tarif / Harga Khusus Sekretaris */
 .price-box {
   margin-top: 1rem;
   padding-top: 0.8rem;
-  border-top: 1px dashed #cbd5e0;
+  border-top: 1px dashed var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-body.dark-mode .price-box {
-  border-top-color: #24344d;
-}
-
 .price-tag {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #2b6cb0;
-  background-color: #ebf4fa;
+  color: var(--blue-accent);
+  background-color: var(--bg-page);
   padding: 0.35rem 0.75rem;
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   width: fit-content;
-}
-
-body.dark-mode .price-tag {
-  color: #38bdf8;
-  background-color: #172554;
 }
 
 .btn-edit-price {
@@ -537,12 +504,8 @@ body.dark-mode .btn-edit-price {
   border-color: #7f1d1d;
 }
 
-.btn-edit-price:hover {
-  background-color: #fecaca;
-}
-
 /* ========================================================
-   SIDEBAR DRAWER MENU
+   SIDEBAR DRAWER MENU (ICON MENU SEMUA MODE)
    ======================================================== */
 .sidebar-overlay {
   position: fixed;
@@ -568,110 +531,147 @@ body.dark-mode .btn-edit-price {
   top: 0;
   right: 0;
   width: 320px;
-  max-width: 85vw;
+  max-width: 86vw;
   height: 100vh;
-  background-color: #ffffff;
-  box-shadow: -10px 0 35px rgba(26, 54, 93, 0.15);
-  border-left: 1px solid #cbd5e0;
+  background-color: var(--bg-surface);
+  box-shadow: -10px 0 35px var(--shadow-color);
+  border-left: 1px solid var(--border-color);
   z-index: 999;
   transform: translateX(100%);
   transition: transform 0.35s ease;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-}
-
-body.dark-mode .sidebar {
-  background-color: #131d31;
-  border-left-color: #24344d;
+  padding: 1.2rem;
 }
 
 .sidebar.active {
   transform: translateX(0);
 }
 
+/* Header Sidebar: Logo (44px) */
 .sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid #cbd5e0;
-  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
 }
 
-body.dark-mode .sidebar-header {
-  border-bottom-color: #24344d;
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  overflow: hidden;
 }
 
-.sidebar-header h3 {
-  font-size: 1.25rem;
-  color: #1a365d;
+/* 2. Ukuran Logo Header Sidebar: 44px */
+.sidebar-brand-logo {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
 }
 
-body.dark-mode .sidebar-header h3 {
-  color: #93c5fd;
+.sidebar-brand-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--blue-deep);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .sidebar-close-btn {
   background: none;
   border: none;
-  font-size: 1.4rem;
-  color: #1a202c;
+  font-size: 1.5rem;
+  color: var(--text-dark);
   cursor: pointer;
-  padding: 0.3rem 0.6rem;
+  padding: 0.2rem 0.5rem;
+  line-height: 1;
 }
 
-body.dark-mode .sidebar-close-btn {
-  color: #f8fafc;
+/* Body Sidebar: Layout Icon Menu Grid 3 Kolom */
+.sidebar-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
 }
 
-.sidebar-links {
-  list-style: none;
+.sidebar-icon-menu {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.8rem;
+  padding: 0.5rem 0.2rem;
+}
+
+/* Tombol Berbentuk Icon Menu Murni */
+.icon-menu-btn {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sidebar-links li {
-  width: 100%;
-}
-
-.sidebar-links a {
-  display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  color: #1a202c;
+  justify-content: center;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.9rem 0.3rem 0.65rem;
   text-decoration: none;
-  font-size: 1.1rem;
+  color: var(--text-dark);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  aspect-ratio: 1 / 1;
+}
+
+.icon-menu-btn i {
+  font-size: 1.6rem;
+  color: var(--blue-accent);
+  margin-bottom: 0.35rem;
+}
+
+.icon-menu-btn .icon-label {
+  font-size: 0.72rem;
   font-weight: 700;
-  border-radius: 8px;
-}
-
-body.dark-mode .sidebar-links a {
-  color: #f8fafc;
-}
-
-.sidebar-links a i {
-  width: 22px;
-  color: #2b6cb0;
-  font-size: 1.1rem;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  color: var(--text-dark);
 }
 
-body.dark-mode .sidebar-links a i {
-  color: #38bdf8;
+.icon-menu-btn:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--blue-accent);
+  transform: translateY(-3px);
 }
 
-.sidebar-links a:hover {
-  background-color: #d5e9f8;
-  color: #0077cc;
-  transform: translateX(4px);
+.icon-menu-btn:hover i {
+  color: var(--blue-vibrant);
 }
 
-body.dark-mode .sidebar-links a:hover {
-  background-color: #172554;
-  color: #38bdf8;
+/* Footer Sidebar */
+.sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sidebar-quote-btn {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
 }
 
 /* ========================================================
@@ -679,11 +679,7 @@ body.dark-mode .sidebar-links a:hover {
    ======================================================== */
 .hero {
   padding: 4.5rem 0 4rem;
-  background: linear-gradient(135deg, #eef7fc 0%, #d8ecfa 100%);
-}
-
-body.dark-mode .hero {
-  background: linear-gradient(135deg, #0b1120 0%, #172554 100%);
+  background: var(--hero-bg);
 }
 
 .hero-container {
@@ -698,7 +694,7 @@ body.dark-mode .hero {
   align-items: center;
   gap: 0.5rem;
   background-color: rgba(43, 108, 176, 0.15);
-  color: #2b6cb0;
+  color: var(--blue-accent);
   padding: 0.4rem 1rem;
   border-radius: 50px;
   font-weight: 700;
@@ -706,30 +702,17 @@ body.dark-mode .hero {
   margin-bottom: 1.2rem;
 }
 
-body.dark-mode .badge {
-  color: #38bdf8;
-  background-color: rgba(56, 189, 248, 0.15);
-}
-
 .hero h1 {
   font-size: 2.6rem;
-  color: #1a365d;
+  color: var(--blue-deep);
   margin-bottom: 1rem;
   line-height: 1.25;
 }
 
-body.dark-mode .hero h1 {
-  color: #93c5fd;
-}
-
 .hero p {
   font-size: 1.15rem;
-  color: #4a5568;
+  color: var(--text-muted);
   margin-bottom: 2rem;
-}
-
-body.dark-mode .hero p {
-  color: #94a3b8;
 }
 
 .hero-buttons {
@@ -742,44 +725,27 @@ body.dark-mode .hero p {
 .hero-stats {
   display: flex;
   gap: 2rem;
-  border-top: 1px solid #cbd5e0;
+  border-top: 1px solid var(--border-color);
   padding-top: 1.5rem;
-}
-
-body.dark-mode .hero-stats {
-  border-top-color: #24344d;
 }
 
 .stat-item h3 {
   font-size: 1.8rem;
-  color: #1a365d;
-}
-
-body.dark-mode .stat-item h3 {
-  color: #93c5fd;
+  color: var(--blue-deep);
 }
 
 .stat-item p {
   font-size: 0.9rem;
-  color: #4a5568;
-}
-
-body.dark-mode .stat-item p {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .hero-logo-card {
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   padding: 2.5rem;
   border-radius: 16px;
-  box-shadow: 0 15px 35px rgba(26, 54, 93, 0.08);
+  box-shadow: 0 15px 35px var(--shadow-color);
   text-align: center;
-  border: 1px solid #cbd5e0;
-}
-
-body.dark-mode .hero-logo-card {
-  background-color: #131d31;
-  border-color: #24344d;
+  border: 1px solid var(--border-color);
 }
 
 .logo-wrapper {
@@ -790,9 +756,10 @@ body.dark-mode .hero-logo-card {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid var(--border-color);
 }
 
-/* 2. UKURAN LOGO HERO: 260px */
+/* 3. Ukuran Logo Hero: 260px */
 .hero-logo-container {
   display: flex;
   flex-direction: column;
@@ -806,6 +773,7 @@ body.dark-mode .hero-logo-card {
   min-width: 260px;
   min-height: 260px;
   max-width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background-color: #ffffff;
   padding: 10px;
@@ -816,21 +784,17 @@ body.dark-mode .hero-logo-card {
 .hero-logo-caption {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #1a365d;
+  color: var(--blue-deep);
   letter-spacing: 0.5px;
   margin-top: 0.8rem;
   text-transform: uppercase;
-}
-
-body.dark-mode .hero-logo-caption {
-  color: #93c5fd;
 }
 
 .hero-card-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #1a365d;
+  background-color: var(--blue-deep);
   color: #ffffff;
   padding: 0.4rem 1.2rem;
   border-radius: 20px;
@@ -838,25 +802,16 @@ body.dark-mode .hero-logo-caption {
   font-size: 0.9rem;
 }
 
-body.dark-mode .hero-card-badge {
-  background-color: #38bdf8;
-  color: #0b1120;
-}
-
 /* ========================================================
-   SECTION TITLE & SUBTITLE
+   SECTION TITLES
    ======================================================== */
 .section-subtitle {
-  color: #2b6cb0;
+  color: var(--blue-accent);
   font-size: 0.95rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 0.4rem;
-}
-
-body.dark-mode .section-subtitle {
-  color: #38bdf8;
 }
 
 .section-subtitle.center {
@@ -866,12 +821,8 @@ body.dark-mode .section-subtitle {
 .section-title {
   text-align: center;
   font-size: 2.2rem;
-  color: #1a365d;
+  color: var(--blue-deep);
   margin-bottom: 2.5rem;
-}
-
-body.dark-mode .section-title {
-  color: #93c5fd;
 }
 
 .section-title.text-left {
@@ -883,11 +834,7 @@ body.dark-mode .section-title {
    ======================================================== */
 .about-section {
   padding: 5rem 0;
-  background-color: #ffffff;
-}
-
-body.dark-mode .about-section {
-  background-color: #131d31;
+  background-color: var(--bg-surface);
 }
 
 .about-grid {
@@ -898,22 +845,21 @@ body.dark-mode .about-section {
 }
 
 .about-card {
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
-  border: 1px solid #cbd5e0;
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 body.dark-mode .about-card {
-  background-color: #0b1120;
-  border-color: #24344d;
+  background-color: var(--bg-page);
 }
 
-/* 3. UKURAN LOGO ABOUT: 240px */
+/* 4. Ukuran Logo About: 240px */
 .about-logo-container {
   display: flex;
   flex-direction: column;
@@ -928,39 +874,32 @@ body.dark-mode .about-card {
   min-width: 240px;
   min-height: 240px;
   max-width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background-color: #ffffff;
   padding: 10px;
   border-radius: 12px;
+  border: 1px solid var(--border-color);
   display: block;
 }
 
 .about-logo-caption {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1a365d;
+  color: var(--blue-deep);
   letter-spacing: 0.5px;
   margin-top: 0.6rem;
   text-transform: uppercase;
 }
 
-body.dark-mode .about-logo-caption {
-  color: #93c5fd;
-}
-
 .about-experience {
-  background-color: #1a365d;
+  background-color: var(--blue-deep);
   color: #ffffff;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-}
-
-body.dark-mode .about-experience {
-  background-color: #172554;
-  color: #93c5fd;
 }
 
 .exp-years {
@@ -971,11 +910,7 @@ body.dark-mode .about-experience {
 .about-content-col p {
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
-  color: #4a5568;
-}
-
-body.dark-mode .about-content-col p {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .about-features {
@@ -992,21 +927,13 @@ body.dark-mode .about-content-col p {
 
 .feature-item i {
   font-size: 1.5rem;
-  color: #2b6cb0;
+  color: var(--blue-accent);
   margin-top: 0.2rem;
-}
-
-body.dark-mode .feature-item i {
-  color: #38bdf8;
 }
 
 .feature-item h4 {
   font-size: 1.15rem;
-  color: #1a365d;
-}
-
-body.dark-mode .feature-item h4 {
-  color: #93c5fd;
+  color: var(--blue-deep);
 }
 
 .feature-item p {
@@ -1027,19 +954,14 @@ body.dark-mode .feature-item h4 {
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(26, 54, 93, 0.08);
-  border: 1px solid #cbd5e0;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  border: 1px solid var(--border-color);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-
-body.dark-mode .card {
-  background-color: #131d31;
-  border-color: #24344d;
 }
 
 .card:hover {
@@ -1049,39 +971,26 @@ body.dark-mode .card {
 .card-icon {
   width: 60px;
   height: 60px;
-  background-color: #ebf4fa;
+  background-color: var(--bg-page);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  color: #2b6cb0;
+  color: var(--blue-accent);
   margin-bottom: 1.2rem;
-}
-
-body.dark-mode .card-icon {
-  background-color: #0b1120;
-  color: #38bdf8;
 }
 
 .card h3 {
   font-size: 1.35rem;
-  color: #1a365d;
+  color: var(--blue-deep);
   margin-bottom: 0.8rem;
 }
 
-body.dark-mode .card h3 {
-  color: #93c5fd;
-}
-
 .card p {
-  color: #4a5568;
+  color: var(--text-muted);
   font-size: 1rem;
   flex: 1;
-}
-
-body.dark-mode .card p {
-  color: #94a3b8;
 }
 
 /* ========================================================
@@ -1089,11 +998,7 @@ body.dark-mode .card p {
    ======================================================== */
 .gallery-section {
   padding: 5rem 0;
-  background-color: #ffffff;
-}
-
-body.dark-mode .gallery-section {
-  background-color: #131d31;
+  background-color: var(--bg-surface);
 }
 
 .gallery-grid {
@@ -1103,18 +1008,13 @@ body.dark-mode .gallery-section {
 }
 
 .gallery-card {
-  background-color: #ebf4fa;
+  background-color: var(--bg-page);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #cbd5e0;
-  box-shadow: 0 4px 15px rgba(26, 54, 93, 0.08);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
   transition: transform 0.3s ease;
   position: relative;
-}
-
-body.dark-mode .gallery-card {
-  background-color: #0b1120;
-  border-color: #24344d;
 }
 
 .gallery-card:hover {
@@ -1126,7 +1026,7 @@ body.dark-mode .gallery-card {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  background-color: #cbd5e0;
+  background-color: var(--border-color);
 }
 
 .gallery-img-wrapper img {
@@ -1146,11 +1046,6 @@ body.dark-mode .gallery-card {
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
   font-weight: 700;
-}
-
-body.dark-mode .gallery-tag {
-  background-color: rgba(56, 189, 248, 0.9);
-  color: #0b1120;
 }
 
 .card-delete-btn {
@@ -1181,37 +1076,23 @@ body.dark-mode .gallery-tag {
 
 .gallery-info h4 {
   font-size: 1.15rem;
-  color: #1a365d;
+  color: var(--blue-deep);
   margin-bottom: 0.4rem;
-}
-
-body.dark-mode .gallery-info h4 {
-  color: #93c5fd;
 }
 
 .gallery-info p {
   font-size: 0.95rem;
-  color: #4a5568;
-}
-
-body.dark-mode .gallery-info p {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 /* ========================================================
-   BAHAN BAKU & ESTIMASI HARGA (LAIN-LAIN)
+   BAHAN BAKU & HARGA PLASTIK
    ======================================================== */
 .lain-lain {
-  background: linear-gradient(180deg, #ebf4fa 0%, #d5e9f8 100%);
+  background: linear-gradient(180deg, var(--bg-page) 0%, var(--bg-subtle) 100%);
   padding: 5rem 0;
-  border-top: 1px solid #cbd5e0;
-  border-bottom: 1px solid #cbd5e0;
-}
-
-body.dark-mode .lain-lain {
-  background: linear-gradient(180deg, #0b1120 0%, #172554 100%);
-  border-top-color: #24344d;
-  border-bottom-color: #24344d;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .list-items {
@@ -1221,29 +1102,20 @@ body.dark-mode .lain-lain {
 }
 
 .item-box {
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   padding: 1.5rem;
   border-radius: 10px;
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  box-shadow: 0 4px 12px rgba(26, 54, 93, 0.08);
-  border: 1px solid #cbd5e0;
-}
-
-body.dark-mode .item-box {
-  background-color: #131d31;
-  border-color: #24344d;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
 .item-box i {
   font-size: 2rem;
-  color: #2b6cb0;
+  color: var(--blue-accent);
   margin-top: 0.2rem;
-}
-
-body.dark-mode .item-box i {
-  color: #38bdf8;
 }
 
 .item-content {
@@ -1252,21 +1124,13 @@ body.dark-mode .item-box i {
 
 .item-box h4 {
   font-size: 1.15rem;
-  color: #1a365d;
+  color: var(--blue-deep);
   margin-bottom: 0.3rem;
-}
-
-body.dark-mode .item-box h4 {
-  color: #93c5fd;
 }
 
 .item-box p {
   font-size: 0.95rem;
-  color: #4a5568;
-}
-
-body.dark-mode .item-box p {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 /* ========================================================
@@ -1274,11 +1138,7 @@ body.dark-mode .item-box p {
    ======================================================== */
 .why-us-section {
   padding: 5rem 0;
-  background-color: #ffffff;
-}
-
-body.dark-mode .why-us-section {
-  background-color: #131d31;
+  background-color: var(--bg-surface);
 }
 
 .why-grid {
@@ -1290,25 +1150,20 @@ body.dark-mode .why-us-section {
 .why-card {
   text-align: center;
   border-radius: 12px;
-  background-color: #ebf4fa;
-  border: 1px solid #cbd5e0;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-color);
   overflow: hidden;
   position: relative;
-  box-shadow: 0 4px 12px rgba(26, 54, 93, 0.05);
+  box-shadow: 0 4px 12px var(--shadow-color);
   display: flex;
   flex-direction: column;
-}
-
-body.dark-mode .why-card {
-  background-color: #0b1120;
-  border-color: #24344d;
 }
 
 .why-img-box {
   width: 100%;
   height: 180px;
   overflow: hidden;
-  background-color: #cbd5e0;
+  background-color: var(--border-color);
 }
 
 .why-img-box img {
@@ -1328,31 +1183,19 @@ body.dark-mode .why-card {
 
 .why-icon {
   font-size: 2.2rem;
-  color: #2b6cb0;
+  color: var(--blue-accent);
   margin-bottom: 0.8rem;
-}
-
-body.dark-mode .why-icon {
-  color: #38bdf8;
 }
 
 .why-card h4 {
   font-size: 1.2rem;
-  color: #1a365d;
+  color: var(--blue-deep);
   margin-bottom: 0.6rem;
-}
-
-body.dark-mode .why-card h4 {
-  color: #93c5fd;
 }
 
 .why-card p {
   font-size: 0.95rem;
-  color: #4a5568;
-}
-
-body.dark-mode .why-card p {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 /* ========================================================
@@ -1370,16 +1213,11 @@ body.dark-mode .why-card p {
 }
 
 .contact-card {
-  background-color: #ffffff;
+  background-color: var(--bg-surface);
   padding: 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(26, 54, 93, 0.08);
-  border: 1px solid #cbd5e0;
-}
-
-body.dark-mode .contact-card {
-  background-color: #131d31;
-  border-color: #24344d;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
 .form-group {
@@ -1391,11 +1229,7 @@ body.dark-mode .contact-card {
   margin-bottom: 0.5rem;
   font-weight: 700;
   font-size: 1.05rem;
-  color: #1a365d;
-}
-
-body.dark-mode .form-group label {
-  color: #93c5fd;
+  color: var(--blue-deep);
 }
 
 .form-group input,
@@ -1403,33 +1237,19 @@ body.dark-mode .form-group label {
 .form-group select {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #cbd5e0;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  background-color: #f8fafc;
-  color: #1a202c;
+  background-color: var(--bg-input);
+  color: var(--text-dark);
   outline: none;
   font-size: 1rem;
   font-family: inherit;
 }
 
-body.dark-mode .form-group input,
-body.dark-mode .form-group textarea,
-body.dark-mode .form-group select {
-  background-color: #1e293b;
-  border-color: #24344d;
-  color: #f8fafc;
-}
-
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: #0077cc;
-}
-
-body.dark-mode .form-group input:focus,
-body.dark-mode .form-group textarea:focus,
-body.dark-mode .form-group select:focus {
-  border-color: #38bdf8;
+  border-color: var(--blue-vibrant);
 }
 
 .contact-info-card {
@@ -1453,16 +1273,18 @@ body.dark-mode .contact-info-card {
   margin-bottom: 0.8rem;
 }
 
-/* 4. UKURAN LOGO FORM KONTAK: 56px */
+/* 5. Ukuran Logo Form Kontak: 56px */
 .contact-logo-img {
   width: 56px;
   height: 56px;
   min-width: 56px;
   min-height: 56px;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background-color: #ffffff;
   padding: 4px;
   border-radius: 8px;
+  border: 1px solid var(--border-color);
   display: block;
 }
 
@@ -1475,10 +1297,6 @@ body.dark-mode .contact-info-card {
   color: #cbd5e0;
   font-size: 1rem;
   margin-bottom: 2rem;
-}
-
-body.dark-mode .company-desc {
-  color: #94a3b8;
 }
 
 .info-list {
@@ -1524,18 +1342,12 @@ body.dark-mode .company-desc {
    FOOTER
    ======================================================== */
 footer {
-  background-color: #0f172a;
-  color: #94a3b8;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
   text-align: center;
   padding: 2rem 0;
   font-size: 0.95rem;
-  border-top: 1px solid #cbd5e0;
-}
-
-body.dark-mode footer {
-  background-color: #050a14;
-  color: #64748b;
-  border-top-color: #24344d;
+  border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -1554,23 +1366,29 @@ body.dark-mode footer {
   font-weight: 700;
 }
 
-/* 5. UKURAN LOGO FOOTER: 40px */
+/* 6. Ukuran Logo Footer: 40px */
 .footer-logo {
   width: 40px;
   height: 40px;
   min-width: 40px;
   min-height: 40px;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background-color: #ffffff;
   padding: 3px;
   border-radius: 6px;
+  border: 1px solid var(--border-color);
   display: block;
 }
 
 /* ========================================================
-   RESPONSIVE LAYOUT
+   RESPONSIVE MEDIA QUERIES (SEMUA UKURAN LAYAR)
    ======================================================== */
 @media (max-width: 992px) {
+  .btn-quote-nav {
+    display: none;
+  }
+
   .hero-container,
   .about-grid,
   .contact-wrapper {
@@ -1604,5 +1422,9 @@ body.dark-mode footer {
 @media (max-width: 480px) {
   .logo-text {
     display: none;
+  }
+
+  .sidebar-icon-menu {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }

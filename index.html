@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Rongsokan Plastik Terpercaya di Bekasi."
+      content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Rongsokan Plastik Terpercaya di Bekasi. Jual Beli, Giling Plastik, Biji Plastik Daur Ulang."
     />
+    <meta
+      name="keywords"
+      content="Plastik Membara, PT Plastik Membara BKS, daur ulang plastik Bekasi, jual beli rongsokan plastik, giling plastik, biji plastik HDPE PP PET"
+    />
+    <meta name="author" content="PT. Plastik Membara BKS" />
     <title>
       PT. PLASTIK MEMBARA BKS | Industri Daur Ulang & Pengolahan Limbah Plastik
       Bekasi
     </title>
 
-    <!-- Hubungkan ke file CSS terpisah -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- Menghubungkan ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css?v=9.0" />
 
     <!-- Font Awesome Icons -->
     <link
@@ -61,18 +66,19 @@
     <nav>
       <div class="container">
         <a href="#" class="logo" title="PT. PLASTIK MEMBARA BKS">
-          <!-- Logo Navbar (48px) -->
+          <!-- Logo Navbar (48px) dengan Fallback -->
           <img
-            src="logo1.JPG - Copy (2)_2.jpeg"
+            src="logo_2.jpg"
             alt="Logo PT. PLASTIK MEMBARA BKS"
             class="logo-img"
             onerror="
               this.onerror = null;
-              this.src = 'logo1.JPG.jpeg';
+              this.src = 'logo.jpg';
             "
           />
           <span class="logo-text">PT. PLASTIK MEMBARA BKS</span>
         </a>
+
         <div class="nav-actions">
           <button id="themeToggle" class="theme-btn" aria-label="Ganti Tema">
             <i class="fa-solid fa-moon"></i>
@@ -86,12 +92,16 @@
               <i class="fa-solid fa-right-to-bracket"></i> Masuk
             </button>
           </div>
-          <a href="#kontak" class="btn-primary btn-sm">Minta Penawaran</a>
+          <a href="#kontak" class="btn-primary btn-sm btn-quote-nav"
+            >Minta Penawaran</a
+          >
+
+          <!-- Tombol Menu Sidebar (Aktif di Laptop & HP) -->
           <button
             type="button"
             class="menu-toggle-btn"
             id="sidebarOpen"
-            aria-label="Buka Menu"
+            aria-label="Buka Menu Sidebar"
           >
             <i class="fa-solid fa-bars"></i>
           </button>
@@ -112,11 +122,9 @@
           <button type="button" class="btn-google" id="googleLoginBtn">
             <i class="fa-brands fa-google"></i> Masuk dengan Google
           </button>
-
           <div class="divider">
             <span>atau masuk sebagai staf / sekretaris</span>
           </div>
-
           <form id="adminLoginForm">
             <div class="form-group">
               <label for="adminUsername"
@@ -150,7 +158,7 @@
       </div>
     </div>
 
-    <!-- Modal Ubah Tarif Layanan (Hanya Sekretaris) -->
+    <!-- Modal Ubah Tarif Layanan (Khusus Sekretaris) -->
     <div class="modal-overlay" id="servicePriceModal">
       <div class="modal-box">
         <div class="modal-header">
@@ -179,7 +187,7 @@
       </div>
     </div>
 
-    <!-- Modal Ubah Harga Barang (Hanya Sekretaris) -->
+    <!-- Modal Ubah Harga Barang (Khusus Sekretaris) -->
     <div class="modal-overlay" id="materialPriceModal">
       <div class="modal-box">
         <div class="modal-header">
@@ -326,11 +334,23 @@
       </div>
     </div>
 
-    <!-- Sidebar Overlay & Menu -->
+    <!-- Sidebar Drawer (Icon Menu Universal Laptop & HP) -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <aside class="sidebar" id="sidebarMenu">
+      <!-- 1. Header: Logo (44px) & Nama Perusahaan -->
       <div class="sidebar-header">
-        <h3>Navigasi Menu</h3>
+        <div class="sidebar-brand">
+          <img
+            src="logo_2.jpg"
+            alt="Logo PT. PLASTIK MEMBARA BKS"
+            class="sidebar-brand-logo"
+            onerror="
+              this.onerror = null;
+              this.src = 'logo.jpg';
+            "
+          />
+          <span class="sidebar-brand-name">PT. PLASTIK MEMBARA BKS</span>
+        </div>
         <button
           type="button"
           class="sidebar-close-btn"
@@ -340,33 +360,91 @@
           &times;
         </button>
       </div>
-      <ul class="sidebar-links">
-        <li>
-          <a href="#beranda"><i class="fa-solid fa-house"></i> Beranda</a>
-        </li>
-        <li>
-          <a href="#tentang"
-            ><i class="fa-solid fa-building"></i> Tentang Kami</a
+
+      <!-- 2. Grid Icon Menu Navigasi Murni -->
+      <div class="sidebar-body">
+        <div class="sidebar-icon-menu">
+          <a
+            href="#beranda"
+            class="icon-menu-btn"
+            title="Beranda"
+            aria-label="Beranda"
           >
-        </li>
-        <li>
-          <a href="#layanan"><i class="fa-solid fa-gear"></i> Layanan</a>
-        </li>
-        <li>
-          <a href="#galeri"><i class="fa-solid fa-images"></i> Galeri</a>
-        </li>
-        <li>
-          <a href="#keunggulan"><i class="fa-solid fa-medal"></i> Keunggulan</a>
-        </li>
-        <li>
-          <a href="#jenis-plastik"
-            ><i class="fa-solid fa-recycle"></i> Harga Plastik</a
+            <i class="fa-solid fa-house"></i>
+            <span class="icon-label">Beranda</span>
+          </a>
+          <a
+            href="#tentang"
+            class="icon-menu-btn"
+            title="Tentang Kami"
+            aria-label="Tentang Kami"
           >
-        </li>
-        <li>
-          <a href="#kontak"><i class="fa-solid fa-envelope"></i> Kontak</a>
-        </li>
-      </ul>
+            <i class="fa-solid fa-building"></i>
+            <span class="icon-label">Tentang</span>
+          </a>
+          <a
+            href="#layanan"
+            class="icon-menu-btn"
+            title="Layanan"
+            aria-label="Layanan"
+          >
+            <i class="fa-solid fa-gear"></i>
+            <span class="icon-label">Layanan</span>
+          </a>
+          <a
+            href="#galeri"
+            class="icon-menu-btn"
+            title="Galeri Dokumentasi"
+            aria-label="Galeri"
+          >
+            <i class="fa-solid fa-images"></i>
+            <span class="icon-label">Galeri</span>
+          </a>
+          <a
+            href="#keunggulan"
+            class="icon-menu-btn"
+            title="Keunggulan Kami"
+            aria-label="Keunggulan"
+          >
+            <i class="fa-solid fa-medal"></i>
+            <span class="icon-label">Keunggulan</span>
+          </a>
+          <a
+            href="#jenis-plastik"
+            class="icon-menu-btn"
+            title="Harga & Jenis Plastik"
+            aria-label="Harga Plastik"
+          >
+            <i class="fa-solid fa-recycle"></i>
+            <span class="icon-label">Harga</span>
+          </a>
+          <a
+            href="#kontak"
+            class="icon-menu-btn"
+            title="Kontak Kami"
+            aria-label="Kontak"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            <span class="icon-label">Kontak</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Bagian Bawah: Masuk & Minta Penawaran -->
+      <div class="sidebar-footer">
+        <div id="sidebarAuthContainer">
+          <button
+            type="button"
+            class="btn-secondary style-block"
+            id="sidebarLoginBtn"
+          >
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk
+          </button>
+        </div>
+        <a href="#kontak" class="btn-primary style-block sidebar-quote-btn">
+          <i class="fa-solid fa-paper-plane"></i> Minta Penawaran
+        </a>
+      </div>
     </aside>
 
     <!-- Hero Section -->
@@ -387,7 +465,7 @@
               ><i class="fa-solid fa-paper-plane"></i> Minta Penawaran Harga</a
             >
             <a
-              href="https://wa.me/6287884811777"
+              href="https://wa.me/6287884811777?text=Halo%20PT.%20Plastik%20Membara%20BKS,%20saya%20ingin%20bertanya%20mengenai%20daur%20ulang%20plastik"
               target="_blank"
               class="btn-secondary"
               ><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a
@@ -410,15 +488,15 @@
         </div>
         <div class="hero-logo-card">
           <div class="logo-wrapper">
-            <!-- Logo Hero Section (260px) -->
+            <!-- Logo Hero: 260px -->
             <div class="hero-logo-container">
               <img
-                src="logo1.JPG - Copy (2)_2.jpeg"
+                src="logo_2.jpg"
                 alt="Logo Utama PT. PLASTIK MEMBARA BKS"
                 class="hero-logo-img"
                 onerror="
                   this.onerror = null;
-                  this.src = 'logo1.JPG.jpeg';
+                  this.src = 'logo.jpg';
                 "
               />
               <h2 class="hero-logo-caption">PT. PLASTIK MEMBARA BKS</h2>
@@ -437,15 +515,15 @@
         <div class="about-grid">
           <div class="about-image-col">
             <div class="about-card">
-              <!-- Logo About Section (240px) -->
+              <!-- Logo About: 240px -->
               <div class="about-logo-container">
                 <img
-                  src="logo1.JPG - Copy (2)_2.jpeg"
-                  alt="Simbol PT. PLASTIK MEMBARA BKS"
+                  src="logo_2.jpg"
+                  alt="Simbol PT. Plastik Membara BKS"
                   class="about-symbol"
                   onerror="
                     this.onerror = null;
-                    this.src = 'logo1.JPG.jpeg';
+                    this.src = 'logo.jpg';
                   "
                 />
                 <h3 class="about-logo-caption">PT. PLASTIK MEMBARA BKS</h3>
@@ -506,7 +584,6 @@
       <div class="container">
         <h2 class="section-subtitle center">LAYANAN UTAMA</h2>
         <h3 class="section-title">Solusi Komprehensif Pengolahan Plastik</h3>
-
         <div class="cards-grid" id="servicesContainer"></div>
       </div>
     </section>
@@ -551,7 +628,7 @@
       </div>
     </section>
 
-    <!-- Bahan Baku & Harga Barang Section -->
+    <!-- Bahan Baku & Harga Plastik Section -->
     <section class="lain-lain" id="jenis-plastik">
       <div class="container">
         <h2 class="section-subtitle center">
@@ -560,7 +637,6 @@
         <h3 class="section-title">
           Kategori Limbah Plastik & Acuan Nilai Jual/Beli
         </h3>
-
         <div class="list-items" id="materialsContainer"></div>
       </div>
     </section>
@@ -645,26 +721,28 @@
               </div>
               <button type="submit" class="btn-primary style-block">
                 <i class="fa-solid fa-paper-plane"></i> Kirim Permintaan
+                Penawaran
               </button>
             </form>
           </div>
 
           <div class="contact-info-card">
             <div class="info-logo-header">
-              <!-- Logo Form Kontak (56px) -->
+              <!-- Logo Form Kontak: 56px -->
               <img
-                src="logo1.JPG - Copy (2)_2.jpeg"
+                src="logo_2.jpg"
                 alt="Logo Form Kontak PT. PLASTIK MEMBARA BKS"
                 class="contact-logo-img"
                 onerror="
                   this.onerror = null;
-                  this.src = 'logo1.JPG.jpeg';
+                  this.src = 'logo.jpg';
                 "
               />
               <h4>PT. PLASTIK MEMBARA BKS</h4>
             </div>
             <p class="company-desc">
-              Pusat daur ulang & pengolahan limbah plastik terpercaya di Bekasi.
+              Pusat daur ulang & industri pengolahan limbah plastik terpercaya
+              di Bekasi.
             </p>
 
             <div class="info-list">
@@ -674,7 +752,7 @@
                   <strong>Alamat Kantor & Pabrik:</strong>
                   <p>
                     Jl. Raya Industri Bekasi No. 88, Kertamukti, Kec. Cibitung,
-                    Kab. Bekasi, Jawa Barat 17520
+                    Kabupaten Bekasi, Jawa Barat 17520
                   </p>
                 </div>
               </div>
@@ -716,23 +794,26 @@
     <footer>
       <div class="container footer-content">
         <div class="footer-brand">
-          <!-- Logo Footer (40px) -->
+          <!-- Logo Footer: 40px -->
           <img
-            src="logo1.JPG - Copy (2)_2.jpeg"
+            src="logo_2.jpg"
             alt="Logo Footer PT. PLASTIK MEMBARA BKS"
             class="footer-logo"
             onerror="
               this.onerror = null;
-              this.src = 'logo1.JPG.jpeg';
+              this.src = 'logo.jpg';
             "
           />
           <span>PT. PLASTIK MEMBARA BKS</span>
         </div>
-        <p>&copy; 2026 PT. PLASTIK MEMBARA BKS. All Rights Reserved.</p>
+        <p>
+          &copy; 2026 PT. PLASTIK MEMBARA BKS. All Rights Reserved. Hak Cipta
+          Dilindungi Undang-Undang.
+        </p>
       </div>
     </footer>
 
-    <!-- Logika Javascript Interaktif -->
+    <!-- Logika Interaktif JS -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const defaultServices = [
@@ -922,6 +1003,7 @@
 
         function renderServices() {
           const container = document.getElementById("servicesContainer");
+          if (!container) return;
           const items = (
             JSON.parse(localStorage.getItem("siteServices_v1")) || []
           ).filter((item) => item.id !== "s2");
@@ -930,22 +1012,23 @@
           container.innerHTML = items
             .map(
               (item) => `
-                <div class="card">
-                  <div class="card-icon"><i class="fa-solid ${item.icon}"></i></div>
-                  <h3>${item.judul}</h3>
-                  <p>${item.deskripsi}</p>
-                  <div class="price-box">
-                    <span class="price-tag"><i class="fa-solid fa-tag"></i> ${item.harga || "Hubungi Kami"}</span>
-                    ${isSekretaris ? `<button type="button" class="btn-edit-price" onclick="openEditServicePrice('${item.id}')"><i class="fa-solid fa-pen-to-square"></i> Ubah Tarif (Sekretaris)</button>` : ""}
-                  </div>
-                </div>
-              `,
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid ${item.icon}"></i></div>
+                        <h3>${item.judul}</h3>
+                        <p>${item.deskripsi}</p>
+                        <div class="price-box">
+                            <span class="price-tag"><i class="fa-solid fa-tag"></i> ${item.harga || "Hubungi Kami"}</span>
+                            ${isSekretaris ? `<button type="button" class="btn-edit-price" onclick="openEditServicePrice('${item.id}')"><i class="fa-solid fa-pen-to-square"></i> Ubah Tarif (Sekretaris)</button>` : ""}
+                        </div>
+                    </div>
+                `,
             )
             .join("");
         }
 
         function renderMaterials() {
           const container = document.getElementById("materialsContainer");
+          if (!container) return;
           const items =
             JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
           const isSekretaris = checkIsSekretaris();
@@ -953,24 +1036,25 @@
           container.innerHTML = items
             .map(
               (item) => `
-                <div class="item-box">
-                  <i class="fa-solid ${item.icon}"></i>
-                  <div class="item-content">
-                    <h4>${item.nama}</h4>
-                    <p>${item.deskripsi}</p>
-                    <div class="price-box">
-                      <span class="price-tag"><i class="fa-solid fa-coins"></i> ${item.harga || "Negosiasi"}</span>
-                      ${isSekretaris ? `<button type="button" class="btn-edit-price" onclick="openEditMaterialPrice('${item.id}')"><i class="fa-solid fa-pen-to-square"></i> Ubah Harga (Sekretaris)</button>` : ""}
+                    <div class="item-box">
+                        <i class="fa-solid ${item.icon}"></i>
+                        <div class="item-content">
+                            <h4>${item.nama}</h4>
+                            <p>${item.deskripsi}</p>
+                            <div class="price-box">
+                                <span class="price-tag"><i class="fa-solid fa-coins"></i> ${item.harga || "Negosiasi"}</span>
+                                ${isSekretaris ? `<button type="button" class="btn-edit-price" onclick="openEditMaterialPrice('${item.id}')"><i class="fa-solid fa-pen-to-square"></i> Ubah Harga (Sekretaris)</button>` : ""}
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              `,
+                `,
             )
             .join("");
         }
 
         function renderGallery() {
           const container = document.getElementById("galleryContainer");
+          if (!container) return;
           const items =
             JSON.parse(localStorage.getItem("customGallery_v2")) || [];
           const canManage = checkCanManageContent();
@@ -978,24 +1062,25 @@
           container.innerHTML = items
             .map(
               (item) => `
-                <div class="gallery-card">
-                  ${canManage ? `<button class="card-delete-btn" onclick="deleteGalleryItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
-                  <div class="gallery-img-wrapper">
-                    <img src="${item.foto}" alt="${item.kategori}" onerror="this.src='images/gudang.jpg'">
-                    <span class="gallery-tag">${item.kategori}</span>
-                  </div>
-                  <div class="gallery-info">
-                    <h4>${item.kategori}</h4>
-                    <p>${item.deskripsi}</p>
-                  </div>
-                </div>
-              `,
+                    <div class="gallery-card">
+                        ${canManage ? `<button class="card-delete-btn" onclick="deleteGalleryItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
+                        <div class="gallery-img-wrapper">
+                            <img src="${item.foto}" alt="${item.kategori}" onerror="this.src='logo_2.jpg'">
+                            <span class="gallery-tag">${item.kategori}</span>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>${item.kategori}</h4>
+                            <p>${item.deskripsi}</p>
+                        </div>
+                    </div>
+                `,
             )
             .join("");
         }
 
         function renderFeatures() {
           const container = document.getElementById("featuresContainer");
+          if (!container) return;
           const items =
             JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
           const canManage = checkCanManageContent();
@@ -1003,16 +1088,16 @@
           container.innerHTML = items
             .map(
               (item) => `
-                <div class="why-card">
-                  ${canManage ? `<button class="card-delete-btn" onclick="deleteFeatureItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
-                  ${item.foto ? `<div class="why-img-box"><img src="${item.foto}" alt="${item.judul}"></div>` : ""}
-                  <div class="why-body">
-                    <div class="why-icon"><i class="fa-solid ${item.icon || "fa-medal"}"></i></div>
-                    <h4>${item.judul}</h4>
-                    <p>${item.deskripsi}</p>
-                  </div>
-                </div>
-              `,
+                    <div class="why-card">
+                        ${canManage ? `<button class="card-delete-btn" onclick="deleteFeatureItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
+                        ${item.foto ? `<div class="why-img-box"><img src="${item.foto}" alt="${item.judul}"></div>` : ""}
+                        <div class="why-body">
+                            <div class="why-icon"><i class="fa-solid ${item.icon || "fa-medal"}"></i></div>
+                            <h4>${item.judul}</h4>
+                            <p>${item.deskripsi}</p>
+                        </div>
+                    </div>
+                `,
             )
             .join("");
         }
@@ -1038,6 +1123,7 @@
           renderFeatures();
         }
 
+        // Modal Edit Tarif & Harga
         const servicePriceModal = document.getElementById("servicePriceModal");
         const servicePriceForm = document.getElementById("servicePriceForm");
         const servicePriceModalClose = document.getElementById(
@@ -1131,7 +1217,7 @@
         }
 
         window.deleteGalleryItem = function (id) {
-          if (confirm("Apakah yakin ingin menghapus foto ini?")) {
+          if (confirm("Apakah yakin ingin menghapus foto dokumentasi ini?")) {
             let items =
               JSON.parse(localStorage.getItem("customGallery_v2")) || [];
             items = items.filter((item) => item.id !== id);
@@ -1150,6 +1236,7 @@
           }
         };
 
+        // Tambah Galeri & Keunggulan
         const addGalleryForm = document.getElementById("addGalleryForm");
         if (addGalleryForm) {
           addGalleryForm.addEventListener("submit", (e) => {
@@ -1166,7 +1253,7 @@
                 id: "g_" + Date.now(),
                 kategori,
                 deskripsi,
-                foto: imgSrc || "images/gudang.jpg",
+                foto: imgSrc || "logo_2.jpg",
               });
               localStorage.setItem("customGallery_v2", JSON.stringify(items));
               renderGallery();
@@ -1220,7 +1307,7 @@
               reader.onload = (event) => saveFeature(event.target.result);
               reader.readAsDataURL(fileInput.files[0]);
             } else {
-              saveGallery(urlInput);
+              saveFeature(urlInput);
             }
           });
         }
@@ -1253,6 +1340,7 @@
             featureModal.classList.remove("active"),
           );
 
+        // Logika Tema Gelap / Terang
         const themeToggle = document.getElementById("themeToggle");
         const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
 
@@ -1278,11 +1366,14 @@
           });
         }
 
+        // Sidebar Menu Logic (Bekerja di Laptop & HP)
         const sidebarOpen = document.getElementById("sidebarOpen");
         const sidebarClose = document.getElementById("sidebarClose");
         const sidebarOverlay = document.getElementById("sidebarOverlay");
         const sidebarMenu = document.getElementById("sidebarMenu");
-        const sidebarLinks = document.querySelectorAll(".sidebar-links a");
+        const sidebarNavItems = document.querySelectorAll(
+          ".sidebar-icon-menu .icon-menu-btn, .sidebar-quote-btn",
+        );
 
         function openSidebar() {
           sidebarMenu.classList.add("active");
@@ -1301,7 +1392,7 @@
         if (sidebarOverlay)
           sidebarOverlay.addEventListener("click", closeSidebar);
 
-        sidebarLinks.forEach((link) => {
+        sidebarNavItems.forEach((link) => {
           link.addEventListener("click", function (e) {
             const target = document.querySelector(this.getAttribute("href"));
             if (target) {
@@ -1312,9 +1403,13 @@
           });
         });
 
+        // Autentikasi Staf / Sekretaris
         const loginModal = document.getElementById("loginModal");
         const loginModalClose = document.getElementById("loginModalClose");
         const authContainer = document.getElementById("authContainer");
+        const sidebarAuthContainer = document.getElementById(
+          "sidebarAuthContainer",
+        );
         const adminLoginForm = document.getElementById("adminLoginForm");
         const loginError = document.getElementById("loginError");
         const googleLoginBtn = document.getElementById("googleLoginBtn");
@@ -1329,32 +1424,64 @@
         function renderAuthState() {
           const user = localStorage.getItem("currentUser");
           if (user) {
-            authContainer.innerHTML = `
-              <div class="user-logged-badge">
-                <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
-                <button type="button" class="btn-logout" id="logoutBtn" title="Keluar">
-                  <i class="fa-solid fa-right-from-bracket"></i>
-                </button>
-              </div>
-            `;
-            document
-              .getElementById("logoutBtn")
-              .addEventListener("click", () => {
-                localStorage.removeItem("currentUser");
-                renderAuthState();
-                updateAdminUI();
-              });
+            const loggedBadge = `
+                        <div class="user-logged-badge">
+                            <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
+                            <button type="button" class="btn-logout" id="logoutBtn" title="Keluar">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </button>
+                        </div>
+                    `;
+            const sidebarLoggedBadge = `
+                        <div class="user-logged-badge style-block">
+                            <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
+                            <button type="button" class="btn-logout" id="sidebarLogoutBtn" title="Keluar">
+                                <i class="fa-solid fa-right-from-bracket"></i> Keluar
+                            </button>
+                        </div>
+                    `;
+
+            authContainer.innerHTML = loggedBadge;
+            sidebarAuthContainer.innerHTML = sidebarLoggedBadge;
+
+            function doLogout() {
+              localStorage.removeItem("currentUser");
+              renderAuthState();
+              updateAdminUI();
+            }
+
+            const logoutBtn = document.getElementById("logoutBtn");
+            const sidebarLogoutBtn =
+              document.getElementById("sidebarLogoutBtn");
+            if (logoutBtn) logoutBtn.addEventListener("click", doLogout);
+            if (sidebarLogoutBtn)
+              sidebarLogoutBtn.addEventListener("click", doLogout);
           } else {
             authContainer.innerHTML = `
-              <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
-                <i class="fa-solid fa-right-to-bracket"></i> Masuk
-              </button>
-            `;
-            document
-              .getElementById("loginBtnOpen")
-              .addEventListener("click", () => {
+                        <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
+                            <i class="fa-solid fa-right-to-bracket"></i> Masuk
+                        </button>
+                    `;
+            sidebarAuthContainer.innerHTML = `
+                        <button type="button" class="btn-secondary style-block" id="sidebarLoginBtn">
+                            <i class="fa-solid fa-right-to-bracket"></i> Masuk Akun
+                        </button>
+                    `;
+
+            const loginBtnOpen = document.getElementById("loginBtnOpen");
+            const sidebarLoginBtn = document.getElementById("sidebarLoginBtn");
+
+            if (loginBtnOpen) {
+              loginBtnOpen.addEventListener("click", () =>
+                loginModal.classList.add("active"),
+              );
+            }
+            if (sidebarLoginBtn) {
+              sidebarLoginBtn.addEventListener("click", () => {
+                closeSidebar();
                 loginModal.classList.add("active");
               });
+            }
           }
           updateAdminUI();
         }
@@ -1375,7 +1502,7 @@
             localStorage.setItem("currentUser", "User Google");
             closeLoginModal();
             renderAuthState();
-            alert("Berhasil masuk.");
+            alert("Berhasil masuk menggunakan akun Google.");
           });
         }
 
@@ -1393,7 +1520,7 @@
               renderAuthState();
               if (displayName === "SEKRETARIS") {
                 alert(
-                  "Selamat datang SEKRETARIS! Anda memiliki wewenang khusus mengubah harga layanan dan barang.",
+                  "Selamat datang SEKRETARIS! Akses kelola harga layanan dan bahan baku diaktifkan.",
                 );
               } else {
                 alert(`Selamat datang ${displayName}!`);
