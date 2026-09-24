@@ -5,14 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Rongsokan Plastik Terpercaya di Bekasi." />
+        content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Limbah Plastik Terpercaya di Bekasi. Jual Beli, Giling Plastik, Biji Plastik Daur Ulang." />
+    <meta name="keywords"
+        content="Plastik Membara, PT Plastik Membara BKS, daur ulang plastik Bekasi, jual beli limbah plastik, giling plastik, biji plastik HDPE PP PET PC" />
     <title>
         PT. PLASTIK MEMBARA BKS | Industri Daur Ulang & Pengolahan Limbah Plastik
         Bekasi
     </title>
 
     <!-- Hubungkan ke file CSS terpisah -->
-    <link rel="stylesheet" href="style.css?v=10.0" />
+    <link rel="stylesheet" href="style.css?v=11.0" />
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -63,7 +65,7 @@
                     </button>
                 </div>
                 <a href="#kontak" class="btn-primary btn-sm btn-quote-nav">Minta Penawaran</a>
-                <!-- Tombol Menu Sidebar: Aktif di Laptop maupun HP -->
+                <!-- Tombol Menu Sidebar -->
                 <button type="button" class="menu-toggle-btn" id="sidebarOpen" aria-label="Buka Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -305,8 +307,8 @@
                 </div>
                 <h1>Pusat Pengolahan & Daur Ulang Limbah Plastik di Bekasi</h1>
                 <p>
-                    PT. Plastik Membara BKS berkomitmen mengolah rongsokan dan limbah
-                    plastik industri menjadi biji & gilingan plastik berkualitas tinggi
+                    PT. Plastik Membara BKS berkomitmen mengolah limbah industri dan limbah
+                    plastik menjadi biji & gilingan plastik berkualitas tinggi
                     untuk mendukung industri hijau dan berkelanjutan.
                 </p>
                 <div class="hero-buttons">
@@ -498,8 +500,8 @@
                             <label for="jenis"><i class="fa-solid fa-tags"></i> Jenis Plastik /
                                 Layanan</label>
                             <select id="jenis">
-                                <option value="Jual Rongsokan Plastik">
-                                    Jual Rongsokan Plastik ke Kami
+                                <option value="Jual Limbah Plastik">
+                                    Jual Limbah Plastik ke Kami
                                 </option>
                                 <option value="Beli Gilingan / Biji Plastik">
                                     Beli Gilingan / Biji Plastik
@@ -549,8 +551,7 @@
                             <div>
                                 <strong>Alamat Kantor & Pabrik:</strong>
                                 <p>
-                                    Jl. Raya Industri Bekasi No. 88, Kertamukti, Kec. Cibitung,
-                                    Kab. Bekasi, Jawa Barat 17520
+                                    Jln. Sadewa (pintu 9 jababeka) Kp. Bangkong reang rt01 rw01 desa wangunharja kec. Cikarang utara kabupaten bekasi
                                 </p>
                             </div>
                         </div>
@@ -607,9 +608,9 @@
                 {
                     id: "s1",
                     icon: "fa-truck-ramp-box",
-                    judul: "Jual Beli Rongsokan Plastik",
+                    judul: "Jual Beli Limbah Plastik",
                     deskripsi:
-                        "Menerima dan membeli berbagai limbah rongsokan plastik industri & rumah tangga dengan harga pasaran kompetitif.",
+                        "Menerima dan membeli berbagai limbah limbah plastik industri & rumah tangga dengan harga pasaran kompetitif.",
                     harga: "Harga Mengikuti Pasaran Tertinggi",
                 },
                 {
@@ -671,9 +672,9 @@
                 {
                     id: "m5",
                     icon: "fa-car",
-                    nama: "ABS & PS (Polystyrene)",
-                    deskripsi: "Casing elektronik, komponen otomotif, perkakas plastik",
-                    harga: "Rp 8.000 – Rp 12.000 / Kg",
+                    nama: "PC (PolyCarbonate)",
+                    deskripsi: "Galon isi ulang, botol polikarbonat, tameng pengaman, komponen elektronik transparan",
+                    harga: "Rp 12.000 – Rp 18.000 / Kg",
                 },
                 {
                     id: "m6",
@@ -731,7 +732,7 @@
                     id: "f2",
                     judul: "Harga Terbaik & Pembayaran Cepat",
                     deskripsi:
-                        "Harga rongsokan kompetitif dengan pembayaran langsung saat transaksi.",
+                        "Harga limbah kompetitif dengan pembayaran langsung saat transaksi.",
                     icon: "fa-money-bill-wave",
                     foto: "",
                 },
@@ -753,21 +754,10 @@
                 },
             ];
 
-            let storedServices = JSON.parse(
-                localStorage.getItem("siteServices_v1"),
-            );
-            if (!storedServices || storedServices.some((s) => s.id === "s2")) {
-                localStorage.setItem(
-                    "siteServices_v1",
-                    JSON.stringify(defaultServices),
-                );
-            }
+            // Inisialisasi Data localStorage
+            localStorage.setItem("siteServices_v1", JSON.stringify(defaultServices));
+            localStorage.setItem("siteMaterials_v1", JSON.stringify(defaultMaterials));
 
-            if (!localStorage.getItem("siteMaterials_v1"))
-                localStorage.setItem(
-                    "siteMaterials_v1",
-                    JSON.stringify(defaultMaterials),
-                );
             if (!localStorage.getItem("customGallery_v2"))
                 localStorage.setItem(
                     "customGallery_v2",
