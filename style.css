@@ -1,5 +1,5 @@
 /* ========================================================
-   GLOBAL RESET & VARIABEL TEMA (LIGHT & DARK MODE)
+   GLOBAL RESET & BASE
    ======================================================== */
 :root {
   --bg-page: #ebf4fa;
@@ -123,7 +123,7 @@ body.dark-mode .top-bar {
 }
 
 /* ========================================================
-   NAVBAR & HEADER (UNIVERSAL LAPTOP & HP)
+   NAVBAR & HEADER (UNIVERSAL DISPLAY)
    ======================================================== */
 nav {
   background-color: var(--bg-surface);
@@ -148,7 +148,7 @@ nav .container {
   text-decoration: none;
 }
 
-/* 1. Ukuran Logo Navbar: 48px */
+/* 1. UKURAN LOGO NAVBAR: 48px */
 .logo-img {
   width: 48px;
   height: 48px;
@@ -171,17 +171,13 @@ nav .container {
   text-transform: uppercase;
 }
 
-/* Matikan navigasi horizontal agar fokus ke icon menu sidebar */
-.desktop-nav {
-  display: none !important;
-}
-
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
+/* Theme Toggle Button */
 .theme-btn {
   background-color: var(--bg-page);
   color: var(--text-dark);
@@ -217,6 +213,7 @@ nav .container {
   font-size: 1.2rem;
 }
 
+/* User Badge */
 .user-logged-badge {
   display: inline-flex;
   align-items: center;
@@ -461,6 +458,7 @@ body.dark-mode .admin-action-bar {
   font-weight: 700;
 }
 
+/* Box Tarif / Harga Khusus Sekretaris */
 .price-box {
   margin-top: 1rem;
   padding-top: 0.8rem;
@@ -504,8 +502,12 @@ body.dark-mode .btn-edit-price {
   border-color: #7f1d1d;
 }
 
+.btn-edit-price:hover {
+  background-color: #fecaca;
+}
+
 /* ========================================================
-   SIDEBAR DRAWER MENU (ICON MENU SEMUA MODE)
+   SIDEBAR DRAWER MENU (ICON MENU FORMAT)
    ======================================================== */
 .sidebar-overlay {
   position: fixed;
@@ -803,7 +805,7 @@ body.dark-mode .btn-edit-price {
 }
 
 /* ========================================================
-   SECTION TITLES
+   SECTION TITLE & SUBTITLE
    ======================================================== */
 .section-subtitle {
   color: var(--blue-accent);
@@ -1086,7 +1088,7 @@ body.dark-mode .about-card {
 }
 
 /* ========================================================
-   BAHAN BAKU & HARGA PLASTIK
+   BAHAN BAKU & ESTIMASI HARGA (LAIN-LAIN)
    ======================================================== */
 .lain-lain {
   background: linear-gradient(180deg, var(--bg-page) 0%, var(--bg-subtle) 100%);
@@ -1273,7 +1275,7 @@ body.dark-mode .contact-info-card {
   margin-bottom: 0.8rem;
 }
 
-/* 5. Ukuran Logo Form Kontak: 56px */
+/* 5. UKURAN LOGO FORM KONTAK: 56px */
 .contact-logo-img {
   width: 56px;
   height: 56px;
@@ -1366,7 +1368,7 @@ footer {
   font-weight: 700;
 }
 
-/* 6. Ukuran Logo Footer: 40px */
+/* 6. UKURAN LOGO FOOTER: 40px */
 .footer-logo {
   width: 40px;
   height: 40px;
@@ -1382,7 +1384,7 @@ footer {
 }
 
 /* ========================================================
-   RESPONSIVE MEDIA QUERIES (SEMUA UKURAN LAYAR)
+   RESPONSIVE LAYOUT (SEMUA MODE LAYAR)
    ======================================================== */
 @media (max-width: 992px) {
   .btn-quote-nav {
