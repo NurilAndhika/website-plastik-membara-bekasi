@@ -5,16 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Limbah Plastik Terpercaya di Bekasi. Jual Beli, Giling Plastik, Biji Plastik Daur Ulang." />
-    <meta name="keywords"
-        content="Plastik Membara, PT Plastik Membara BKS, daur ulang plastik Bekasi, jual beli limbah plastik, giling plastik, biji plastik HDPE PP PET PC" />
+        content="PT. Plastik Membara BKS - Perusahaan Daur Ulang & Pengolahan Limbah Rongsokan Plastik Terpercaya di Bekasi." />
     <title>
         PT. PLASTIK MEMBARA BKS | Industri Daur Ulang & Pengolahan Limbah Plastik
         Bekasi
     </title>
 
     <!-- Hubungkan ke file CSS terpisah -->
-    <link rel="stylesheet" href="style.css?v=11.0" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -49,7 +47,7 @@
         <div class="container">
             <a href="#" class="logo" title="PT. PLASTIK MEMBARA BKS">
                 <!-- Logo Navbar (48px) -->
-                <img src="logo_2.jpg" alt="Logo PT. PLASTIK MEMBARA BKS" class="logo-img" onerror="
+                <img src="logo.jpg" alt="Logo PT. PLASTIK MEMBARA BKS" class="logo-img" onerror="
               this.onerror = null;
               this.src = 'logo.jpg';
             " />
@@ -64,8 +62,7 @@
                         <i class="fa-solid fa-right-to-bracket"></i> Masuk
                     </button>
                 </div>
-                <a href="#kontak" class="btn-primary btn-sm btn-quote-nav">Minta Penawaran</a>
-                <!-- Tombol Menu Sidebar -->
+                <a href="#kontak" class="btn-primary btn-sm">Minta Penawaran</a>
                 <button type="button" class="menu-toggle-btn" id="sidebarOpen" aria-label="Buka Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -234,67 +231,52 @@
         </div>
     </div>
 
-    <!-- Sidebar Overlay & Menu (Format Icon Menu) -->
+    <!-- Sidebar Overlay & Menu -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <aside class="sidebar" id="sidebarMenu">
-        <!-- 1. Header: Logo & Nama Perusahaan -->
         <div class="sidebar-header">
             <div class="sidebar-brand">
-                <img src="logo_2.jpg" alt="Logo PT. PLASTIK MEMBARA BKS" class="sidebar-brand-logo" onerror="
-                    this.onerror = null;
-                    this.src = 'logo.jpg';
-                " />
-                <span class="sidebar-brand-name">PT. PLASTIK MEMBARA BKS</span>
+                <img src="logo.jpg" alt="Logo" class="sidebar-logo" onerror="this.onerror=null;this.src='logo.jpg';" />
+                <span class="sidebar-title">PT. PLASTIK MEMBARA BKS</span>
             </div>
             <button type="button" class="sidebar-close-btn" id="sidebarClose" aria-label="Tutup">
-                &times;
+                <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
-
-        <!-- 2. Grid Icon Menu Navigasi -->
-        <div class="sidebar-body">
-            <div class="sidebar-icon-menu">
-                <a href="#beranda" class="icon-menu-btn" title="Beranda" aria-label="Beranda">
+        <div class="sidebar-content">
+            <div class="sidebar-grid">
+                <a href="#beranda" class="sidebar-grid-item">
                     <i class="fa-solid fa-house"></i>
-                    <span class="icon-label">Beranda</span>
+                    <span>Beranda</span>
                 </a>
-                <a href="#tentang" class="icon-menu-btn" title="Tentang Kami" aria-label="Tentang Kami">
+                <a href="#tentang" class="sidebar-grid-item">
                     <i class="fa-solid fa-building"></i>
-                    <span class="icon-label">Tentang</span>
+                    <span>Tentang</span>
                 </a>
-                <a href="#layanan" class="icon-menu-btn" title="Layanan" aria-label="Layanan">
+                <a href="#layanan" class="sidebar-grid-item">
                     <i class="fa-solid fa-gear"></i>
-                    <span class="icon-label">Layanan</span>
+                    <span>Layanan</span>
                 </a>
-                <a href="#galeri" class="icon-menu-btn" title="Galeri Dokumentasi" aria-label="Galeri">
+                <a href="#galeri" class="sidebar-grid-item">
                     <i class="fa-solid fa-images"></i>
-                    <span class="icon-label">Galeri</span>
+                    <span>Galeri</span>
                 </a>
-                <a href="#keunggulan" class="icon-menu-btn" title="Keunggulan Kami" aria-label="Keunggulan">
+                <a href="#keunggulan" class="sidebar-grid-item">
                     <i class="fa-solid fa-medal"></i>
-                    <span class="icon-label">Keunggulan</span>
+                    <span>Keunggulan</span>
                 </a>
-                <a href="#jenis-plastik" class="icon-menu-btn" title="Harga & Jenis Plastik" aria-label="Harga Plastik">
+                <a href="#jenis-plastik" class="sidebar-grid-item">
                     <i class="fa-solid fa-recycle"></i>
-                    <span class="icon-label">Harga</span>
+                    <span>Harga</span>
                 </a>
-                <a href="#kontak" class="icon-menu-btn" title="Kontak Kami" aria-label="Kontak">
+                <a href="#kontak" class="sidebar-grid-item">
                     <i class="fa-solid fa-envelope"></i>
-                    <span class="icon-label">Kontak</span>
+                    <span>Kontak</span>
                 </a>
             </div>
         </div>
-
-        <!-- 3. Bagian Bawah: Masuk & Minta Penawaran -->
         <div class="sidebar-footer">
-            <div id="sidebarAuthContainer">
-                <button type="button" class="btn-secondary style-block" id="sidebarLoginBtn">
-                    <i class="fa-solid fa-right-to-bracket"></i> Masuk
-                </button>
-            </div>
-            <a href="#kontak" class="btn-primary style-block sidebar-quote-btn">
-                <i class="fa-solid fa-paper-plane"></i> Minta Penawaran
-            </a>
+            <a href="#kontak" class="btn-primary sidebar-btn-penawaran">Minta Penawaran</a>
         </div>
     </aside>
 
@@ -307,8 +289,8 @@
                 </div>
                 <h1>Pusat Pengolahan & Daur Ulang Limbah Plastik di Bekasi</h1>
                 <p>
-                    PT. Plastik Membara BKS berkomitmen mengolah limbah industri dan limbah
-                    plastik menjadi biji & gilingan plastik berkualitas tinggi
+                    PT. Plastik Membara BKS berkomitmen mengolah rongsokan dan limbah
+                    plastik industri menjadi biji & gilingan plastik berkualitas tinggi
                     untuk mendukung industri hijau dan berkelanjutan.
                 </p>
                 <div class="hero-buttons">
@@ -336,7 +318,7 @@
                 <div class="logo-wrapper">
                     <!-- Logo Hero Section (260px) -->
                     <div class="hero-logo-container">
-                        <img src="logo_2.jpg" alt="Logo Utama PT. PLASTIK MEMBARA BKS"
+                        <img src="logo.jpg" alt="Logo Utama PT. PLASTIK MEMBARA BKS"
                             class="hero-logo-img" onerror="
                   this.onerror = null;
                   this.src = 'logo.jpg';
@@ -359,7 +341,7 @@
                     <div class="about-card">
                         <!-- Logo About Section (240px) -->
                         <div class="about-logo-container">
-                            <img src="logo_2.jpg" alt="Simbol PT. PLASTIK MEMBARA BKS"
+                            <img src="logo.jpg" alt="Simbol PT. PLASTIK MEMBARA BKS"
                                 class="about-symbol" onerror="
                     this.onerror = null;
                     this.src = 'logo.jpg';
@@ -500,8 +482,8 @@
                             <label for="jenis"><i class="fa-solid fa-tags"></i> Jenis Plastik /
                                 Layanan</label>
                             <select id="jenis">
-                                <option value="Jual Limbah Plastik">
-                                    Jual Limbah Plastik ke Kami
+                                <option value="Jual Rongsokan Plastik">
+                                    Jual Rongsokan Plastik ke Kami
                                 </option>
                                 <option value="Beli Gilingan / Biji Plastik">
                                     Beli Gilingan / Biji Plastik
@@ -534,7 +516,7 @@
                 <div class="contact-info-card">
                     <div class="info-logo-header">
                         <!-- Logo Form Kontak (56px) -->
-                        <img src="logo_2.jpg" alt="Logo Form Kontak PT. PLASTIK MEMBARA BKS"
+                        <img src="logo.jpg" alt="Logo Form Kontak PT. PLASTIK MEMBARA BKS"
                             class="contact-logo-img" onerror="
                   this.onerror = null;
                   this.src = 'logo.jpg';
@@ -551,7 +533,8 @@
                             <div>
                                 <strong>Alamat Kantor & Pabrik:</strong>
                                 <p>
-                                    Jln. Sadewa (pintu 9 jababeka) Kp. Bangkong reang rt01 rw01 desa wangunharja kec. Cikarang utara kabupaten bekasi
+                                    Jl. Raya Industri Bekasi No. 88, Kertamukti, Kec. Cibitung,
+                                    Kab. Bekasi, Jawa Barat 17520
                                 </p>
                             </div>
                         </div>
@@ -586,18 +569,48 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <!-- Logo Footer (40px) -->
-                <img src="logo_2.jpg" alt="Logo Footer PT. PLASTIK MEMBARA BKS" class="footer-logo"
-                    onerror="
-              this.onerror = null;
-              this.src = 'logo.jpg';
-            " />
-                <span>PT. PLASTIK MEMBARA BKS</span>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col-brand">
+                    <div class="footer-brand">
+                        <img src="logo.jpg" alt="Logo Footer PT. PLASTIK MEMBARA BKS" class="footer-logo" onerror="this.onerror = null; this.src = 'logo.jpg';" />
+                        <span>PT. PLASTIK MEMBARA BKS</span>
+                    </div>
+                    <p class="footer-desc">
+                        Mitra terpercaya Anda dalam penyediaan biji plastik daur ulang berkualitas untuk berbagai kebutuhan industri manufaktur.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://wa.me/6287884811777" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#layanan">Produk & Layanan</a></li>
+                        <li><a href="#galeri">Galeri</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Hubungi Kami</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> Bekasi, Jawa Barat, Indonesia</li>
+                        <li><i class="fa-solid fa-phone"></i> +62 878-8481-1777</li>
+                        <li><i class="fa-solid fa-envelope"></i> ariesmdr007@gmail.com</li>
+                    </ul>
+                </div>
             </div>
-            <p>&copy; 2026 PT. PLASTIK MEMBARA BKS. All Rights Reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 PT. PLASTIK MEMBARA BKS. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -608,9 +621,9 @@
                 {
                     id: "s1",
                     icon: "fa-truck-ramp-box",
-                    judul: "Jual Beli Limbah Plastik",
+                    judul: "Jual Beli Rongsokan Plastik",
                     deskripsi:
-                        "Menerima dan membeli berbagai limbah limbah plastik industri & rumah tangga dengan harga pasaran kompetitif.",
+                        "Menerima dan membeli berbagai limbah rongsokan plastik industri & rumah tangga dengan harga pasaran kompetitif.",
                     harga: "Harga Mengikuti Pasaran Tertinggi",
                 },
                 {
@@ -672,9 +685,9 @@
                 {
                     id: "m5",
                     icon: "fa-car",
-                    nama: "PC (PolyCarbonate)",
-                    deskripsi: "Galon isi ulang, botol polikarbonat, tameng pengaman, komponen elektronik transparan",
-                    harga: "Rp 12.000 – Rp 18.000 / Kg",
+                    nama: "ABS & PS (Polystyrene)",
+                    deskripsi: "Casing elektronik, komponen otomotif, perkakas plastik",
+                    harga: "Rp 8.000 – Rp 12.000 / Kg",
                 },
                 {
                     id: "m6",
@@ -732,7 +745,7 @@
                     id: "f2",
                     judul: "Harga Terbaik & Pembayaran Cepat",
                     deskripsi:
-                        "Harga limbah kompetitif dengan pembayaran langsung saat transaksi.",
+                        "Harga rongsokan kompetitif dengan pembayaran langsung saat transaksi.",
                     icon: "fa-money-bill-wave",
                     foto: "",
                 },
@@ -754,10 +767,21 @@
                 },
             ];
 
-            // Inisialisasi Data localStorage
-            localStorage.setItem("siteServices_v1", JSON.stringify(defaultServices));
-            localStorage.setItem("siteMaterials_v1", JSON.stringify(defaultMaterials));
+            let storedServices = JSON.parse(
+                localStorage.getItem("siteServices_v1"),
+            );
+            if (!storedServices || storedServices.some((s) => s.id === "s2")) {
+                localStorage.setItem(
+                    "siteServices_v1",
+                    JSON.stringify(defaultServices),
+                );
+            }
 
+            if (!localStorage.getItem("siteMaterials_v1"))
+                localStorage.setItem(
+                    "siteMaterials_v1",
+                    JSON.stringify(defaultMaterials),
+                );
             if (!localStorage.getItem("customGallery_v2"))
                 localStorage.setItem(
                     "customGallery_v2",
@@ -839,7 +863,7 @@
                 <div class="gallery-card">
                   ${canManage ? `<button class="card-delete-btn" onclick="deleteGalleryItem('${item.id}')" title="Hapus"><i class="fa-solid fa-trash"></i></button>` : ""}
                   <div class="gallery-img-wrapper">
-                    <img src="${item.foto}" alt="${item.kategori}" onerror="this.src='logo_2.jpg'">
+                    <img src="${item.foto}" alt="${item.kategori}" onerror="this.src='images/gudang.jpg'">
                     <span class="gallery-tag">${item.kategori}</span>
                   </div>
                   <div class="gallery-info">
@@ -1024,7 +1048,7 @@
                             id: "g_" + Date.now(),
                             kategori,
                             deskripsi,
-                            foto: imgSrc || "logo_2.jpg",
+                            foto: imgSrc || "images/gudang.jpg",
                         });
                         localStorage.setItem("customGallery_v2", JSON.stringify(items));
                         renderGallery();
@@ -1140,7 +1164,7 @@
             const sidebarClose = document.getElementById("sidebarClose");
             const sidebarOverlay = document.getElementById("sidebarOverlay");
             const sidebarMenu = document.getElementById("sidebarMenu");
-            const sidebarNavItems = document.querySelectorAll(".sidebar-icon-menu .icon-menu-btn, .sidebar-quote-btn");
+            const sidebarLinks = document.querySelectorAll(".sidebar-grid-item, .sidebar-btn-penawaran");
 
             function openSidebar() {
                 sidebarMenu.classList.add("active");
@@ -1159,7 +1183,7 @@
             if (sidebarOverlay)
                 sidebarOverlay.addEventListener("click", closeSidebar);
 
-            sidebarNavItems.forEach((link) => {
+            sidebarLinks.forEach((link) => {
                 link.addEventListener("click", function (e) {
                     const target = document.querySelector(this.getAttribute("href"));
                     if (target) {
@@ -1173,7 +1197,6 @@
             const loginModal = document.getElementById("loginModal");
             const loginModalClose = document.getElementById("loginModalClose");
             const authContainer = document.getElementById("authContainer");
-            const sidebarAuthContainer = document.getElementById("sidebarAuthContainer");
             const adminLoginForm = document.getElementById("adminLoginForm");
             const loginError = document.getElementById("loginError");
             const googleLoginBtn = document.getElementById("googleLoginBtn");
@@ -1188,65 +1211,32 @@
             function renderAuthState() {
                 const user = localStorage.getItem("currentUser");
                 if (user) {
-                    const loggedBadge = `
-                        <div class="user-logged-badge">
-                            <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
-                            <button type="button" class="btn-logout" id="logoutBtn" title="Keluar">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                            </button>
-                        </div>
-                    `;
-                    const sidebarLoggedBadge = `
-                        <div class="user-logged-badge style-block">
-                            <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
-                            <button type="button" class="btn-logout" id="sidebarLogoutBtn" title="Keluar">
-                                <i class="fa-solid fa-right-from-bracket"></i> Keluar
-                            </button>
-                        </div>
-                    `;
-
-                    authContainer.innerHTML = loggedBadge;
-                    if (sidebarAuthContainer) sidebarAuthContainer.innerHTML = sidebarLoggedBadge;
-
-                    function doLogout() {
-                        localStorage.removeItem("currentUser");
-                        renderAuthState();
-                        updateAdminUI();
-                    }
-
-                    const logoutBtn = document.getElementById("logoutBtn");
-                    const sidebarLogoutBtn = document.getElementById("sidebarLogoutBtn");
-                    if (logoutBtn) logoutBtn.addEventListener("click", doLogout);
-                    if (sidebarLogoutBtn) sidebarLogoutBtn.addEventListener("click", doLogout);
-
+                    authContainer.innerHTML = `
+              <div class="user-logged-badge">
+                <span><i class="fa-solid fa-user-circle"></i> ${user}</span>
+                <button type="button" class="btn-logout" id="logoutBtn" title="Keluar">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+              </div>
+            `;
+                    document
+                        .getElementById("logoutBtn")
+                        .addEventListener("click", () => {
+                            localStorage.removeItem("currentUser");
+                            renderAuthState();
+                            updateAdminUI();
+                        });
                 } else {
                     authContainer.innerHTML = `
-                        <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
-                            <i class="fa-solid fa-right-to-bracket"></i> Masuk
-                        </button>
-                    `;
-                    if (sidebarAuthContainer) {
-                        sidebarAuthContainer.innerHTML = `
-                            <button type="button" class="btn-secondary style-block" id="sidebarLoginBtn">
-                                <i class="fa-solid fa-right-to-bracket"></i> Masuk Akun
-                            </button>
-                        `;
-                    }
-
-                    const loginBtnOpen = document.getElementById("loginBtnOpen");
-                    const sidebarLoginBtn = document.getElementById("sidebarLoginBtn");
-
-                    if (loginBtnOpen) {
-                        loginBtnOpen.addEventListener("click", () => {
+              <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
+                <i class="fa-solid fa-right-to-bracket"></i> Masuk
+              </button>
+            `;
+                    document
+                        .getElementById("loginBtnOpen")
+                        .addEventListener("click", () => {
                             loginModal.classList.add("active");
                         });
-                    }
-                    if (sidebarLoginBtn) {
-                        sidebarLoginBtn.addEventListener("click", () => {
-                            closeSidebar();
-                            loginModal.classList.add("active");
-                        });
-                    }
                 }
                 updateAdminUI();
             }

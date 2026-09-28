@@ -1,42 +1,6 @@
 /* ========================================================
-   GLOBAL RESET & VARIABEL TEMA
+   GLOBAL RESET & BASE
    ======================================================== */
-:root {
-    --bg-page: #ebf4fa;
-    --bg-surface: #ffffff;
-    --bg-subtle: #d5e9f8;
-    --bg-input: #f8fafc;
-    --blue-accent: #2b6cb0;
-    --blue-deep: #1a365d;
-    --blue-vibrant: #0077cc;
-    --text-dark: #1a202c;
-    --text-muted: #4a5568;
-    --border-color: #cbd5e0;
-    --shadow-color: rgba(26, 54, 93, 0.08);
-    --footer-bg: #0f172a;
-    --footer-text: #94a3b8;
-    --hero-bg: linear-gradient(135deg, #eef7fc 0%, #d8ecfa 100%);
-    --logo-radial: radial-gradient(circle, #f7fafc 0%, #ebf4fa 100%);
-}
-
-body.dark-mode {
-    --bg-page: #0b1120;
-    --bg-surface: #131d31;
-    --bg-subtle: #172554;
-    --bg-input: #1e293b;
-    --blue-accent: #38bdf8;
-    --blue-deep: #93c5fd;
-    --blue-vibrant: #38bdf8;
-    --text-dark: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: #24344d;
-    --shadow-color: rgba(0, 0, 0, 0.4);
-    --footer-bg: #050a14;
-    --footer-text: #64748b;
-    --hero-bg: linear-gradient(135deg, #0b1120 0%, #172554 100%);
-    --logo-radial: radial-gradient(circle, #1e293b 0%, #0b1120 100%);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -53,9 +17,14 @@ html {
 }
 
 body {
-    background-color: var(--bg-page);
-    color: var(--text-dark);
+    background-color: #f1f5f9;
+    color: #1a202c;
     line-height: 1.6;
+}
+
+body.dark-mode {
+    background-color: #0f172a;
+    color: #f8fafc;
 }
 
 .container {
@@ -68,7 +37,7 @@ body {
    TOP BAR
    ======================================================== */
 .top-bar {
-    background-color: #1a365d;
+    background-color: #1e293b;
     color: #e2e8f0;
     font-size: 0.9rem;
     padding: 0.4rem 0;
@@ -76,7 +45,7 @@ body {
 }
 
 body.dark-mode .top-bar {
-    background-color: #172554;
+    background-color: #0f172a;
 }
 
 .top-bar-content {
@@ -123,16 +92,22 @@ body.dark-mode .top-bar {
 }
 
 /* ========================================================
-   NAVBAR & HEADER (AKTIF DI SEMUA LAYAR)
+   NAVBAR & HEADER
    ======================================================== */
 nav {
-    background-color: var(--bg-surface);
-    border-bottom: 2px solid var(--border-color);
+    background-color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
     padding: 0.6rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px var(--shadow-color);
+    box-shadow: 0 2px 10px rgba(26, 54, 93, 0.08);
+}
+
+body.dark-mode nav {
+    background-color: #1e293b;
+    border-bottom-color: #334155;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 nav .container {
@@ -148,27 +123,29 @@ nav .container {
     text-decoration: none;
 }
 
-/* 1. Ukuran Logo Navbar: 48px */
+/* 1. UKURAN LOGO NAVBAR: 48px */
 .logo-img {
     width: 48px;
     height: 48px;
     min-width: 48px;
     min-height: 48px;
     object-fit: contain;
-    aspect-ratio: 1 / 1;
     background-color: #ffffff;
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 2px;
-    border: 1px solid var(--border-color);
     display: block;
 }
 
 .logo-text {
     font-size: 1.35rem;
     font-weight: 700;
-    color: var(--blue-deep);
+    color: #1e293b;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+}
+
+body.dark-mode .logo-text {
+    color: #cbd5e1;
 }
 
 .nav-actions {
@@ -179,38 +156,53 @@ nav .container {
 
 /* Theme Toggle Button */
 .theme-btn {
-    background-color: var(--bg-page);
-    color: var(--text-dark);
-    border: 1px solid var(--border-color);
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    background-color: #f1f5f9;
+    color: #1a202c;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    width: 38px; height: 38px;
+    border-radius: 8px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 1.05rem;
-    box-shadow: 0 2px 5px var(--shadow-color);
+    box-shadow: 0 2px 5px rgba(26, 54, 93, 0.08);
+}
+
+body.dark-mode .theme-btn {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .theme-btn:hover {
-    color: var(--blue-accent);
-    border-color: var(--blue-accent);
+    color: #3b82f6;
+    border-color: #3b82f6;
 }
 
-/* Tombol Menu Hamburger: SELALU AKTIF di laptop & HP */
+body.dark-mode .theme-btn:hover {
+    color: #60a5fa;
+    border-color: #60a5fa;
+}
+
+/* Mobile Toggle */
 .menu-toggle-btn {
-    display: inline-flex !important;
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    color: var(--blue-deep);
-    width: 40px;
-    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    color: #1e293b;
+    width: 38px; height: 38px;
     border-radius: 8px;
     cursor: pointer;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+}
+
+body.dark-mode .menu-toggle-btn {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
+    color: #cbd5e1;
 }
 
 /* User Badge */
@@ -218,13 +210,19 @@ nav .container {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background-color: var(--bg-page);
-    border: 1px solid var(--border-color);
+    background-color: #f1f5f9;
+    border: 1px solid rgba(226, 232, 240, 0.8);
     padding: 0.35rem 0.8rem;
     border-radius: 20px;
     font-weight: 700;
     font-size: 0.9rem;
-    color: var(--blue-deep);
+    color: #1e293b;
+}
+
+body.dark-mode .user-logged-badge {
+    background-color: #0f172a;
+    border-color: rgba(51, 65, 85, 0.8);
+    color: #cbd5e1;
 }
 
 .btn-logout {
@@ -245,10 +243,10 @@ nav .container {
    GLOBAL BUTTONS
    ======================================================== */
 .btn-primary {
-    background-color: var(--blue-accent);
+    background-color: #3b82f6;
     color: #ffffff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 6px;
+    padding: 0 1.5rem; min-height: 44px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.05rem;
@@ -260,8 +258,8 @@ nav .container {
 }
 
 body.dark-mode .btn-primary {
-    background-color: #38bdf8;
-    color: #0b1120;
+    background-color: #60a5fa;
+    color: #0f172a;
 }
 
 .btn-primary:hover {
@@ -271,8 +269,8 @@ body.dark-mode .btn-primary {
 .btn-secondary {
     background-color: #25d366;
     color: #ffffff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 6px;
+    padding: 0 1.5rem; min-height: 44px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.05rem;
@@ -288,7 +286,7 @@ body.dark-mode .btn-primary {
 }
 
 .btn-sm {
-    padding: 0.5rem 1.2rem;
+    padding: 0 1rem; min-height: 38px;
     font-size: 0.95rem;
 }
 
@@ -301,7 +299,7 @@ body.dark-mode .btn-primary {
    ADMIN BAR & PANEL
    ======================================================== */
 .admin-action-bar {
-    background: #2b6cb0;
+    background: #3b82f6;
     color: #ffffff;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -314,15 +312,15 @@ body.dark-mode .btn-primary {
 }
 
 body.dark-mode .admin-action-bar {
-    background: #172554;
-    border: 1px solid #38bdf8;
+    background: #0f172a;
+    border: 1px solid #60a5fa;
 }
 
 .admin-btn-add {
     background-color: #ffffff;
-    color: #1a365d;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
+    color: #1e293b;
+    padding: 0 1rem; min-height: 38px;
+    border-radius: 8px;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -332,7 +330,7 @@ body.dark-mode .admin-action-bar {
 }
 
 .admin-btn-add:hover {
-    background-color: #ebf4fa;
+    background-color: #f1f5f9;
 }
 
 /* ========================================================
@@ -362,15 +360,20 @@ body.dark-mode .admin-action-bar {
 }
 
 .modal-box {
-    background-color: var(--bg-surface);
-    border-radius: 12px;
+    background-color: #ffffff;
+    border-radius: 16px;
     width: 90%;
     max-width: 460px;
-    box-shadow: 0 10px 30px var(--shadow-color);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(26, 54, 93, 0.15);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     overflow: hidden;
     max-height: 90vh;
     overflow-y: auto;
+}
+
+body.dark-mode .modal-box {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .modal-header {
@@ -378,12 +381,20 @@ body.dark-mode .admin-action-bar {
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: #334155;
 }
 
 .modal-header h3 {
     font-size: 1.25rem;
-    color: var(--blue-deep);
+    color: #1e293b;
+}
+
+body.dark-mode .modal-header h3 {
+    color: #cbd5e1;
 }
 
 .modal-close {
@@ -391,7 +402,11 @@ body.dark-mode .admin-action-bar {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--text-muted);
+    color: #4a5568;
+}
+
+body.dark-mode .modal-close {
+    color: #94a3b8;
 }
 
 .modal-close:hover {
@@ -406,9 +421,9 @@ body.dark-mode .admin-action-bar {
     width: 100%;
     background-color: #ffffff;
     color: #333333;
-    border: 1px solid #cbd5e0;
+    border: 1px solid rgba(226, 232, 240, 0.8);
     padding: 0.75rem;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -437,17 +452,26 @@ body.dark-mode .admin-action-bar {
     left: 0;
     right: 0;
     height: 1px;
-    background-color: var(--border-color);
+    background-color: #e2e8f0;
     z-index: 1;
+}
+
+body.dark-mode .divider::before {
+    background-color: #334155;
 }
 
 .divider span {
     position: relative;
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     padding: 0 0.8rem;
-    color: var(--text-muted);
+    color: #4a5568;
     font-size: 0.85rem;
     z-index: 2;
+}
+
+body.dark-mode .divider span {
+    background-color: #1e293b;
+    color: #94a3b8;
 }
 
 .login-error-msg {
@@ -462,23 +486,32 @@ body.dark-mode .admin-action-bar {
 .price-box {
     margin-top: 1rem;
     padding-top: 0.8rem;
-    border-top: 1px dashed var(--border-color);
+    border-top: 1px dashed #e2e8f0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
+body.dark-mode .price-box {
+    border-top-color: #334155;
+}
+
 .price-tag {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--blue-accent);
-    background-color: var(--bg-page);
+    color: #3b82f6;
+    background-color: #f1f5f9;
     padding: 0.35rem 0.75rem;
-    border-radius: 6px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     width: fit-content;
+}
+
+body.dark-mode .price-tag {
+    color: #60a5fa;
+    background-color: #0f172a;
 }
 
 .btn-edit-price {
@@ -486,7 +519,7 @@ body.dark-mode .admin-action-bar {
     color: #991b1b;
     border: 1px solid #fecaca;
     padding: 0.35rem 0.75rem;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
@@ -507,7 +540,7 @@ body.dark-mode .btn-edit-price {
 }
 
 /* ========================================================
-   SIDEBAR DRAWER MENU (ICON MENU FORMAT)
+   SIDEBAR DRAWER MENU
    ======================================================== */
 .sidebar-overlay {
     position: fixed;
@@ -532,145 +565,130 @@ body.dark-mode .btn-edit-price {
     position: fixed;
     top: 0;
     right: 0;
-    width: 320px;
-    max-width: 86vw;
+    width: 360px;
+    max-width: 85vw;
     height: 100vh;
-    background-color: var(--bg-surface);
-    box-shadow: -10px 0 35px var(--shadow-color);
-    border-left: 1px solid var(--border-color);
+    background-color: #ffffff;
+    box-shadow: -10px 0 35px rgba(26, 54, 93, 0.15);
+    border-left: 1px solid #e2e8f0;
     z-index: 999;
     transform: translateX(100%);
     transition: transform 0.35s ease;
     display: flex;
     flex-direction: column;
-    padding: 1.2rem;
+    padding: 1.5rem;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1e293b;
+    border-left-color: #334155;
 }
 
 .sidebar.active {
     transform: translateX(0);
 }
 
-/* Header Sidebar: Logo (44px) */
 .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 1rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+body.dark-mode .sidebar-header {
+    border-bottom-color: #334155;
 }
 
 .sidebar-brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    overflow: hidden;
+    gap: 0.8rem;
 }
 
-/* 2. Ukuran Logo Header Sidebar: 44px */
-.sidebar-brand-logo {
+.sidebar-logo {
     width: 44px;
     height: 44px;
-    min-width: 44px;
-    min-height: 44px;
-    aspect-ratio: 1 / 1;
     object-fit: contain;
-    background-color: #ffffff;
-    padding: 3px;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    padding: 3px;
+    background: #fff;
 }
 
-.sidebar-brand-name {
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--blue-deep);
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
+.sidebar-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
     line-height: 1.2;
+    max-width: 140px;
+}
+
+body.dark-mode .sidebar-title {
+    color: #cbd5e1;
 }
 
 .sidebar-close-btn {
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: var(--text-dark);
+    font-size: 1.6rem;
+    color: #64748b;
     cursor: pointer;
-    padding: 0.2rem 0.5rem;
-    line-height: 1;
+    padding: 0.3rem;
 }
 
-/* Body Sidebar: Layout Icon Menu Grid 3 Kolom */
-.sidebar-body {
+body.dark-mode .sidebar-close-btn {
+    color: #94a3b8;
+}
+
+.sidebar-content {
     flex: 1;
     overflow-y: auto;
-    padding: 0.5rem 0;
 }
 
-.sidebar-icon-menu {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.8rem;
-    padding: 0.5rem 0.2rem;
-}
+.sidebar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; }
 
-/* Tombol Berbentuk Icon Menu Murni */
-.icon-menu-btn {
+.sidebar-grid-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-page);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 0.9rem 0.3rem 0.65rem;
+    gap: 0.6rem;
+    background-color: #ffffff; border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 1.2rem 0.5rem; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
     text-decoration: none;
-    color: var(--text-dark);
-    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-    box-shadow: 0 2px 5px var(--shadow-color);
-    aspect-ratio: 1 / 1;
-}
-
-.icon-menu-btn i {
-    font-size: 1.6rem;
-    color: var(--blue-accent);
-    margin-bottom: 0.35rem;
-}
-
-.icon-menu-btn .icon-label {
-    font-size: 0.72rem;
+    color: #1e293b;
+    font-size: 0.85rem;
     font-weight: 700;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 90%;
-    color: var(--text-dark);
+    transition: all 0.2s ease;
 }
 
-.icon-menu-btn:hover {
-    background-color: var(--bg-subtle);
-    border-color: var(--blue-accent);
-    transform: translateY(-3px);
+body.dark-mode .sidebar-grid-item {
+    background-color: #0f172a;
+    border-color: rgba(51, 65, 85, 0.8);
+    color: #cbd5e1;
 }
 
-.icon-menu-btn:hover i {
-    color: var(--blue-vibrant);
+.sidebar-grid-item i {
+    font-size: 1.6rem;
+    color: #3b82f6;
 }
 
-/* Footer Sidebar: Tombol Masuk & Minta Penawaran */
-.sidebar-footer {
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+body.dark-mode .sidebar-grid-item i {
+    color: #60a5fa;
 }
 
-.sidebar-quote-btn {
-    text-align: center;
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
+.sidebar-grid-item:hover { background-color: #e2e8f0;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .sidebar-grid-item:hover {
+    background-color: #1e293b;
+    border-color: #475569;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* ========================================================
@@ -678,7 +696,11 @@ body.dark-mode .btn-edit-price {
    ======================================================== */
 .hero {
     padding: 4.5rem 0 4rem;
-    background: var(--hero-bg);
+    background: linear-gradient(135deg, #eef7fc 0%, #d8ecfa 100%);
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #0f172a 100%);
 }
 
 .hero-container {
@@ -693,7 +715,7 @@ body.dark-mode .btn-edit-price {
     align-items: center;
     gap: 0.5rem;
     background-color: rgba(43, 108, 176, 0.15);
-    color: var(--blue-accent);
+    color: #3b82f6;
     padding: 0.4rem 1rem;
     border-radius: 50px;
     font-weight: 700;
@@ -701,17 +723,30 @@ body.dark-mode .btn-edit-price {
     margin-bottom: 1.2rem;
 }
 
+body.dark-mode .badge {
+    color: #60a5fa;
+    background-color: rgba(56, 189, 248, 0.15);
+}
+
 .hero h1 {
     font-size: 2.6rem;
-    color: var(--blue-deep);
+    color: #1e293b;
     margin-bottom: 1rem;
     line-height: 1.25;
 }
 
+body.dark-mode .hero h1 {
+    color: #cbd5e1;
+}
+
 .hero p {
     font-size: 1.15rem;
-    color: var(--text-muted);
+    color: #4a5568;
     margin-bottom: 2rem;
+}
+
+body.dark-mode .hero p {
+    color: #94a3b8;
 }
 
 .hero-buttons {
@@ -724,41 +759,57 @@ body.dark-mode .btn-edit-price {
 .hero-stats {
     display: flex;
     gap: 2rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #e2e8f0;
     padding-top: 1.5rem;
+}
+
+body.dark-mode .hero-stats {
+    border-top-color: #334155;
 }
 
 .stat-item h3 {
     font-size: 1.8rem;
-    color: var(--blue-deep);
+    color: #1e293b;
+}
+
+body.dark-mode .stat-item h3 {
+    color: #cbd5e1;
 }
 
 .stat-item p {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #4a5568;
+}
+
+body.dark-mode .stat-item p {
+    color: #94a3b8;
 }
 
 .hero-logo-card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 15px 35px var(--shadow-color);
+    box-shadow: 0 15px 35px rgba(26, 54, 93, 0.08);
     text-align: center;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+body.dark-mode .hero-logo-card {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .logo-wrapper {
     background: #ffffff;
     padding: 1.5rem;
-    border-radius: 12px;
+    border-radius: 16px;
     margin-bottom: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--border-color);
 }
 
-/* 3. UKURAN LOGO HERO: 260px */
+/* 2. UKURAN LOGO HERO: 260px */
 .hero-logo-container {
     display: flex;
     flex-direction: column;
@@ -772,28 +823,31 @@ body.dark-mode .btn-edit-price {
     min-width: 260px;
     min-height: 260px;
     max-width: 100%;
-    aspect-ratio: 1 / 1;
     object-fit: contain;
     background-color: #ffffff;
     padding: 10px;
-    border-radius: 12px;
+    border-radius: 16px;
     display: block;
 }
 
 .hero-logo-caption {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--blue-deep);
+    color: #1e293b;
     letter-spacing: 0.5px;
     margin-top: 0.8rem;
     text-transform: uppercase;
+}
+
+body.dark-mode .hero-logo-caption {
+    color: #cbd5e1;
 }
 
 .hero-card-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--blue-deep);
+    background-color: #1e293b;
     color: #ffffff;
     padding: 0.4rem 1.2rem;
     border-radius: 20px;
@@ -801,16 +855,25 @@ body.dark-mode .btn-edit-price {
     font-size: 0.9rem;
 }
 
+body.dark-mode .hero-card-badge {
+    background-color: #60a5fa;
+    color: #0f172a;
+}
+
 /* ========================================================
    SECTION TITLE & SUBTITLE
    ======================================================== */
 .section-subtitle {
-    color: var(--blue-accent);
+    color: #3b82f6;
     font-size: 0.95rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 0.4rem;
+}
+
+body.dark-mode .section-subtitle {
+    color: #60a5fa;
 }
 
 .section-subtitle.center {
@@ -820,8 +883,12 @@ body.dark-mode .btn-edit-price {
 .section-title {
     text-align: center;
     font-size: 2.2rem;
-    color: var(--blue-deep);
+    color: #1e293b;
     margin-bottom: 2.5rem;
+}
+
+body.dark-mode .section-title {
+    color: #cbd5e1;
 }
 
 .section-title.text-left {
@@ -833,7 +900,11 @@ body.dark-mode .btn-edit-price {
    ======================================================== */
 .about-section {
     padding: 5rem 0;
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
+}
+
+body.dark-mode .about-section {
+    background-color: #1e293b;
 }
 
 .about-grid {
@@ -844,21 +915,22 @@ body.dark-mode .btn-edit-price {
 }
 
 .about-card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 body.dark-mode .about-card {
-    background-color: var(--bg-page);
+    background-color: #0f172a;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
-/* 4. UKURAN LOGO ABOUT: 240px */
+/* 3. UKURAN LOGO ABOUT: 240px */
 .about-logo-container {
     display: flex;
     flex-direction: column;
@@ -873,32 +945,39 @@ body.dark-mode .about-card {
     min-width: 240px;
     min-height: 240px;
     max-width: 100%;
-    aspect-ratio: 1 / 1;
     object-fit: contain;
     background-color: #ffffff;
     padding: 10px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+    border-radius: 16px;
     display: block;
 }
 
 .about-logo-caption {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--blue-deep);
+    color: #1e293b;
     letter-spacing: 0.5px;
     margin-top: 0.6rem;
     text-transform: uppercase;
 }
 
+body.dark-mode .about-logo-caption {
+    color: #cbd5e1;
+}
+
 .about-experience {
-    background-color: var(--blue-deep);
+    background-color: #1e293b;
     color: #ffffff;
     padding: 1rem 1.5rem;
-    border-radius: 12px;
+    border-radius: 16px;
     display: inline-flex;
     align-items: center;
     gap: 1rem;
+}
+
+body.dark-mode .about-experience {
+    background-color: #0f172a;
+    color: #cbd5e1;
 }
 
 .exp-years {
@@ -909,7 +988,11 @@ body.dark-mode .about-card {
 .about-content-col p {
     margin-bottom: 1.2rem;
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: #4a5568;
+}
+
+body.dark-mode .about-content-col p {
+    color: #94a3b8;
 }
 
 .about-features {
@@ -926,13 +1009,21 @@ body.dark-mode .about-card {
 
 .feature-item i {
     font-size: 1.5rem;
-    color: var(--blue-accent);
+    color: #3b82f6;
     margin-top: 0.2rem;
+}
+
+body.dark-mode .feature-item i {
+    color: #60a5fa;
 }
 
 .feature-item h4 {
     font-size: 1.15rem;
-    color: var(--blue-deep);
+    color: #1e293b;
+}
+
+body.dark-mode .feature-item h4 {
+    color: #cbd5e1;
 }
 
 .feature-item p {
@@ -953,43 +1044,59 @@ body.dark-mode .about-card {
 }
 
 .card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+body.dark-mode .card {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
 }
+
+.card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1); }
 
 .card-icon {
     width: 60px;
     height: 60px;
-    background-color: var(--bg-page);
-    border-radius: 12px;
+    background-color: #f1f5f9;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    color: var(--blue-accent);
+    color: #3b82f6;
     margin-bottom: 1.2rem;
+}
+
+body.dark-mode .card-icon {
+    background-color: #0f172a;
+    color: #60a5fa;
 }
 
 .card h3 {
     font-size: 1.35rem;
-    color: var(--blue-deep);
+    color: #1e293b;
     margin-bottom: 0.8rem;
 }
 
+body.dark-mode .card h3 {
+    color: #cbd5e1;
+}
+
 .card p {
-    color: var(--text-muted);
+    color: #4a5568;
     font-size: 1rem;
     flex: 1;
+}
+
+body.dark-mode .card p {
+    color: #94a3b8;
 }
 
 /* ========================================================
@@ -997,7 +1104,11 @@ body.dark-mode .about-card {
    ======================================================== */
 .gallery-section {
     padding: 5rem 0;
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
+}
+
+body.dark-mode .gallery-section {
+    background-color: #1e293b;
 }
 
 .gallery-grid {
@@ -1006,26 +1117,28 @@ body.dark-mode .about-card {
     gap: 1.8rem;
 }
 
-.gallery-card {
-    background-color: var(--bg-page);
-    border-radius: 12px;
+.gallery-card { background-color: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
     transition: transform 0.3s ease;
     position: relative;
 }
 
-.gallery-card:hover {
-    transform: translateY(-5px);
+body.dark-mode .gallery-card {
+    background-color: #0f172a;
+    border-color: rgba(51, 65, 85, 0.8);
 }
+
+.gallery-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1); }
 
 .gallery-img-wrapper {
     position: relative;
     width: 100%;
     height: 200px;
     overflow: hidden;
-    background-color: var(--border-color);
+    background-color: #e2e8f0;
 }
 
 .gallery-img-wrapper img {
@@ -1047,6 +1160,11 @@ body.dark-mode .about-card {
     font-weight: 700;
 }
 
+body.dark-mode .gallery-tag {
+    background-color: rgba(56, 189, 248, 0.9);
+    color: #0f172a;
+}
+
 .card-delete-btn {
     position: absolute;
     top: 12px;
@@ -1054,7 +1172,7 @@ body.dark-mode .about-card {
     background-color: #e53e3e;
     color: #ffffff;
     border: none;
-    border-radius: 50%;
+    border-radius: 8px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -1075,23 +1193,37 @@ body.dark-mode .about-card {
 
 .gallery-info h4 {
     font-size: 1.15rem;
-    color: var(--blue-deep);
+    color: #1e293b;
     margin-bottom: 0.4rem;
+}
+
+body.dark-mode .gallery-info h4 {
+    color: #cbd5e1;
 }
 
 .gallery-info p {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: #4a5568;
+}
+
+body.dark-mode .gallery-info p {
+    color: #94a3b8;
 }
 
 /* ========================================================
    BAHAN BAKU & ESTIMASI HARGA (LAIN-LAIN)
    ======================================================== */
 .lain-lain {
-    background: linear-gradient(180deg, var(--bg-page) 0%, var(--bg-subtle) 100%);
+    background: linear-gradient(180deg, #f1f5f9 0%, #d5e9f8 100%);
     padding: 5rem 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.dark-mode .lain-lain {
+    background: linear-gradient(180deg, #0f172a 0%, #0f172a 100%);
+    border-top-color: #334155;
+    border-bottom-color: #334155;
 }
 
 .list-items {
@@ -1101,20 +1233,29 @@ body.dark-mode .about-card {
 }
 
 .item-box {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     padding: 1.5rem;
-    border-radius: 10px;
+    border-radius: 16px;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+body.dark-mode .item-box {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .item-box i {
     font-size: 2rem;
-    color: var(--blue-accent);
+    color: #3b82f6;
     margin-top: 0.2rem;
+}
+
+body.dark-mode .item-box i {
+    color: #60a5fa;
 }
 
 .item-content {
@@ -1123,13 +1264,21 @@ body.dark-mode .about-card {
 
 .item-box h4 {
     font-size: 1.15rem;
-    color: var(--blue-deep);
+    color: #1e293b;
     margin-bottom: 0.3rem;
+}
+
+body.dark-mode .item-box h4 {
+    color: #cbd5e1;
 }
 
 .item-box p {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: #4a5568;
+}
+
+body.dark-mode .item-box p {
+    color: #94a3b8;
 }
 
 /* ========================================================
@@ -1137,7 +1286,11 @@ body.dark-mode .about-card {
    ======================================================== */
 .why-us-section {
     padding: 5rem 0;
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
+}
+
+body.dark-mode .why-us-section {
+    background-color: #1e293b;
 }
 
 .why-grid {
@@ -1146,23 +1299,25 @@ body.dark-mode .about-card {
     gap: 2rem;
 }
 
-.why-card {
-    text-align: center;
-    border-radius: 12px;
-    background-color: var(--bg-page);
-    border: 1px solid var(--border-color);
+.why-card { text-align: center; border-radius: 16px; background-color: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.8);
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
     display: flex;
     flex-direction: column;
+}
+
+body.dark-mode .why-card {
+    background-color: #0f172a;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .why-img-box {
     width: 100%;
     height: 180px;
     overflow: hidden;
-    background-color: var(--border-color);
+    background-color: #e2e8f0;
 }
 
 .why-img-box img {
@@ -1182,19 +1337,31 @@ body.dark-mode .about-card {
 
 .why-icon {
     font-size: 2.2rem;
-    color: var(--blue-accent);
+    color: #3b82f6;
     margin-bottom: 0.8rem;
+}
+
+body.dark-mode .why-icon {
+    color: #60a5fa;
 }
 
 .why-card h4 {
     font-size: 1.2rem;
-    color: var(--blue-deep);
+    color: #1e293b;
     margin-bottom: 0.6rem;
+}
+
+body.dark-mode .why-card h4 {
+    color: #cbd5e1;
 }
 
 .why-card p {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: #4a5568;
+}
+
+body.dark-mode .why-card p {
+    color: #94a3b8;
 }
 
 /* ========================================================
@@ -1212,11 +1379,16 @@ body.dark-mode .about-card {
 }
 
 .contact-card {
-    background-color: var(--bg-surface);
+    background-color: #ffffff;
     padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+body.dark-mode .contact-card {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .form-group {
@@ -1228,41 +1400,58 @@ body.dark-mode .about-card {
     margin-bottom: 0.5rem;
     font-weight: 700;
     font-size: 1.05rem;
-    color: var(--blue-deep);
+    color: #1e293b;
+}
+
+body.dark-mode .form-group label {
+    color: #cbd5e1;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background-color: var(--bg-input);
-    color: var(--text-dark);
+    padding: 0.7rem 1rem; min-height: 44px; border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #1a202c;
     outline: none;
     font-size: 1rem;
     font-family: inherit;
 }
 
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+    background-color: #1e293b;
+    border-color: rgba(51, 65, 85, 0.8);
+    color: #f8fafc;
+}
+
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-    border-color: var(--blue-vibrant);
+    border-color: #0077cc;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus,
+body.dark-mode .form-group select:focus {
+    border-color: #60a5fa;
 }
 
 .contact-info-card {
-    background-color: #1a365d;
+    background-color: #1e293b;
     color: #ffffff;
     padding: 2.5rem;
-    border-radius: 12px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 body.dark-mode .contact-info-card {
-    background-color: #172554;
+    background-color: #0f172a;
 }
 
 .info-logo-header {
@@ -1272,18 +1461,16 @@ body.dark-mode .contact-info-card {
     margin-bottom: 0.8rem;
 }
 
-/* 5. UKURAN LOGO FORM KONTAK: 56px */
+/* 4. UKURAN LOGO FORM KONTAK: 56px */
 .contact-logo-img {
     width: 56px;
     height: 56px;
     min-width: 56px;
     min-height: 56px;
-    aspect-ratio: 1 / 1;
     object-fit: contain;
     background-color: #ffffff;
     padding: 4px;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
     display: block;
 }
 
@@ -1293,9 +1480,13 @@ body.dark-mode .contact-info-card {
 }
 
 .company-desc {
-    color: #cbd5e0;
+    color: #e2e8f0;
     font-size: 1rem;
     margin-bottom: 2rem;
+}
+
+body.dark-mode .company-desc {
+    color: #94a3b8;
 }
 
 .info-list {
@@ -1340,20 +1531,24 @@ body.dark-mode .contact-info-card {
 /* ========================================================
    FOOTER
    ======================================================== */
-footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    text-align: center;
-    padding: 2rem 0;
+.site-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    border-top: 1px solid #1e293b;
+    padding-top: 4rem;
     font-size: 0.95rem;
-    border-top: 1px solid var(--border-color);
 }
 
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+body.dark-mode .site-footer {
+    background-color: #050a14;
+    border-top-color: #1e293b;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 .footer-brand {
@@ -1361,32 +1556,111 @@ footer {
     align-items: center;
     gap: 0.8rem;
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
+    margin-bottom: 1.2rem;
 }
 
-/* 6. UKURAN LOGO FOOTER: 40px */
 .footer-logo {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    aspect-ratio: 1 / 1;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
     background-color: #ffffff;
-    padding: 3px;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
+    padding: 4px;
+    border-radius: 8px;
     display: block;
+}
+
+.footer-desc {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    max-width: 400px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-socials a {
+    color: #cbd5e1;
+    background-color: #1e293b;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.footer-col-links h4,
+.footer-col-contact h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-col-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col-links a:hover {
+    color: #60a5fa;
+}
+
+.footer-contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-contact-list li {
+    display: flex;
+    gap: 0.8rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.footer-contact-list i {
+    color: #60a5fa;
+    margin-top: 0.2rem;
+}
+
+.footer-bottom {
+    background-color: #020617;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+body.dark-mode .footer-bottom {
+    background-color: #000000;
 }
 
 /* ========================================================
    RESPONSIVE LAYOUT
    ======================================================== */
 @media (max-width: 992px) {
-    .btn-quote-nav {
-        display: none;
-    }
 
     .hero-container,
     .about-grid,
@@ -1422,8 +1696,176 @@ footer {
     .logo-text {
         display: none;
     }
+}
+h1, h2, h3, h4, h5, h6 { line-height: 1.3; }
 
-    .sidebar-icon-menu {
-        grid-template-columns: repeat(2, 1fr) !important;
+
+@media (max-width: 600px) {
+    .nav-actions .btn-primary {
+        display: none !important;
+    }
+    #loginBtnOpen {
+        padding: 0;
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+    }
+    #loginBtnOpen {
+        font-size: 0;
+    }
+    #loginBtnOpen i {
+        font-size: 1.1rem;
+        margin: 0;
     }
 }
+
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.8rem; }
+    .section-title { font-size: 1.8rem; }
+    .hero p { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .hero-buttons .btn-primary, .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
+}
+
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+
+
+/* SIDEBAR NEW LAYOUT */
+/* ========================================================
+   TOAST NOTIFICATION
+   ======================================================== */
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.toast {
+    background-color: #ffffff;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #1e293b;
+    font-size: 0.95rem;
+    min-width: 250px;
+    font-weight: 700;
+}
+body.dark-mode .toast {
+    background-color: #1e293b;
+    color: #f8fafc;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.toast.success { border-left-color: #22c55e; }
+.toast.error { border-left-color: #ef4444; }
+.toast.active { transform: translateX(0); }
+.toast-icon { font-size: 1.3rem; }
+.toast.success .toast-icon { color: #22c55e; }
+.toast.error .toast-icon { color: #ef4444; }
+
+
+
+/* ========================================================
+   MODAL FORM REFINEMENTS
+   ======================================================== */
+.modal-box {
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    border: none;
+}
+body.dark-mode .modal-box {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid #334155;
+}
+.modal-header {
+    border-bottom: none;
+    padding: 2rem 2rem 0.5rem 2rem;
+}
+.modal-header h3 {
+    font-size: 1.4rem;
+}
+.modal-body {
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+.btn-google {
+    border-radius: 16px;
+    padding: 0.85rem;
+    font-size: 1.05rem;
+    background-color: #f8fafc;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all 0.3s ease;
+}
+body.dark-mode .btn-google {
+    background-color: #0f172a;
+    border-color: rgba(51, 65, 85, 0.8);
+    color: #e2e8f0;
+}
+.btn-google:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+body.dark-mode .btn-google:hover {
+    background-color: #1e293b;
+    border-color: #475569;
+}
+.modal-body form .btn-primary {
+    border-radius: 16px;
+    padding: 0.85rem;
+    font-size: 1.05rem;
+    margin-top: 1rem;
+}
+.login-error-msg {
+    display: none; /* Hide the old error text */
+}
+
+
+body.dark-mode .sidebar-grid {
+    border-bottom-color: #334155;
+}
+
+
+.sidebar-footer {
+    padding-top: 1.5rem;
+    display: flex;
+}
+.sidebar-btn-penawaran {
+    width: 100%;
+    justify-content: center;
+}
+
+
+.why-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+}
+.item-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.item-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1);
+}
+
