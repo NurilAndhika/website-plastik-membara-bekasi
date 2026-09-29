@@ -46,14 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "m2",
       icon: "fa-prescription-bottle",
       nama: "HDPE (High-Density Polyethylene)",
-      deskripsi:
-        "Jeriken, botol oli, botol sampo, tutup botol, drum plastik",
+      deskripsi: "Jeriken, botol oli, botol sampo, tutup botol, drum plastik",
       harga: "Rp 6.000 – Rp 8.800 / Kg",
     },
     {
       id: "m3",
       icon: "fa-box-archive",
-      nama: "PP (Polypropylene)",
+      nama: "PC (PolyCarbonete)",
       deskripsi: "Ember, gelas plastik, keranjang buah, kursi monobloc",
       harga: "Rp 5.000 – Rp 7.800 / Kg",
     },
@@ -90,8 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "g2",
       kategori: "Bagian Gudang",
-      deskripsi:
-        "Area penampungan & penyimpanan limbah kapasitas puluhan ton.",
+      deskripsi: "Area penampungan & penyimpanan limbah kapasitas puluhan ton.",
       foto: "images/gudang.jpg",
     },
     {
@@ -149,31 +147,17 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  let storedServices = JSON.parse(
-    localStorage.getItem("siteServices_v1"),
-  );
+  let storedServices = JSON.parse(localStorage.getItem("siteServices_v1"));
   if (!storedServices || storedServices.some((s) => s.id === "s2")) {
-    localStorage.setItem(
-      "siteServices_v1",
-      JSON.stringify(defaultServices),
-    );
+    localStorage.setItem("siteServices_v1", JSON.stringify(defaultServices));
   }
 
   if (!localStorage.getItem("siteMaterials_v1"))
-    localStorage.setItem(
-      "siteMaterials_v1",
-      JSON.stringify(defaultMaterials),
-    );
+    localStorage.setItem("siteMaterials_v1", JSON.stringify(defaultMaterials));
   if (!localStorage.getItem("customGallery_v2"))
-    localStorage.setItem(
-      "customGallery_v2",
-      JSON.stringify(defaultGallery),
-    );
+    localStorage.setItem("customGallery_v2", JSON.stringify(defaultGallery));
   if (!localStorage.getItem("customFeatures_v2"))
-    localStorage.setItem(
-      "customFeatures_v2",
-      JSON.stringify(defaultFeatures),
-    );
+    localStorage.setItem("customFeatures_v2", JSON.stringify(defaultFeatures));
 
   function checkIsSekretaris() {
     return localStorage.getItem("currentUser") === "SEKRETARIS";
@@ -210,8 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderMaterials() {
     const container = document.getElementById("materialsContainer");
-    const items =
-      JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
+    const items = JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
     const isSekretaris = checkIsSekretaris();
 
     container.innerHTML = items
@@ -235,8 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderGallery() {
     const container = document.getElementById("galleryContainer");
-    const items =
-      JSON.parse(localStorage.getItem("customGallery_v2")) || [];
+    const items = JSON.parse(localStorage.getItem("customGallery_v2")) || [];
     const canManage = checkCanManageContent();
 
     container.innerHTML = items
@@ -260,8 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderFeatures() {
     const container = document.getElementById("featuresContainer");
-    const items =
-      JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
+    const items = JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
     const canManage = checkCanManageContent();
 
     container.innerHTML = items
@@ -310,15 +291,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.openEditServicePrice = function (id) {
     if (!checkIsSekretaris()) return;
-    const items =
-      JSON.parse(localStorage.getItem("siteServices_v1")) || [];
+    const items = JSON.parse(localStorage.getItem("siteServices_v1")) || [];
     const item = items.find((s) => s.id === id);
     if (item) {
       document.getElementById("serviceTargetId").value = item.id;
       document.getElementById("serviceTargetLabel").innerText =
         `Tarif: ${item.judul}`;
-      document.getElementById("servicePriceInput").value =
-        item.harga || "";
+      document.getElementById("servicePriceInput").value = item.harga || "";
       servicePriceModal.classList.add("active");
     }
   };
@@ -335,8 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!checkIsSekretaris()) return;
       const id = document.getElementById("serviceTargetId").value;
       const newPrice = document.getElementById("servicePriceInput").value;
-      let items =
-        JSON.parse(localStorage.getItem("siteServices_v1")) || [];
+      let items = JSON.parse(localStorage.getItem("siteServices_v1")) || [];
       items = items.map((item) =>
         item.id === id ? { ...item, harga: newPrice } : item,
       );
@@ -347,8 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const materialPriceModal =
-    document.getElementById("materialPriceModal");
+  const materialPriceModal = document.getElementById("materialPriceModal");
   const materialPriceForm = document.getElementById("materialPriceForm");
   const materialPriceModalClose = document.getElementById(
     "materialPriceModalClose",
@@ -356,15 +333,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.openEditMaterialPrice = function (id) {
     if (!checkIsSekretaris()) return;
-    const items =
-      JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
+    const items = JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
     const item = items.find((m) => m.id === id);
     if (item) {
       document.getElementById("materialTargetId").value = item.id;
       document.getElementById("materialTargetLabel").innerText =
         `Harga: ${item.nama}`;
-      document.getElementById("materialPriceInput").value =
-        item.harga || "";
+      document.getElementById("materialPriceInput").value = item.harga || "";
       materialPriceModal.classList.add("active");
     }
   };
@@ -380,10 +355,8 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       if (!checkIsSekretaris()) return;
       const id = document.getElementById("materialTargetId").value;
-      const newPrice =
-        document.getElementById("materialPriceInput").value;
-      let items =
-        JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
+      const newPrice = document.getElementById("materialPriceInput").value;
+      let items = JSON.parse(localStorage.getItem("siteMaterials_v1")) || [];
       items = items.map((item) =>
         item.id === id ? { ...item, harga: newPrice } : item,
       );
@@ -396,8 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.deleteGalleryItem = function (id) {
     if (confirm("Apakah yakin ingin menghapus foto ini?")) {
-      let items =
-        JSON.parse(localStorage.getItem("customGallery_v2")) || [];
+      let items = JSON.parse(localStorage.getItem("customGallery_v2")) || [];
       items = items.filter((item) => item.id !== id);
       localStorage.setItem("customGallery_v2", JSON.stringify(items));
       renderGallery();
@@ -406,8 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.deleteFeatureItem = function (id) {
     if (confirm("Apakah yakin ingin menghapus keunggulan ini?")) {
-      let items =
-        JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
+      let items = JSON.parse(localStorage.getItem("customFeatures_v2")) || [];
       items = items.filter((item) => item.id !== id);
       localStorage.setItem("customFeatures_v2", JSON.stringify(items));
       renderFeatures();
@@ -434,9 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         localStorage.setItem("customGallery_v2", JSON.stringify(items));
         renderGallery();
-        document
-          .getElementById("galleryModal")
-          .classList.remove("active");
+        document.getElementById("galleryModal").classList.remove("active");
         addGalleryForm.reset();
         alert("Dokumentasi berhasil disimpan!");
       }
@@ -472,9 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         localStorage.setItem("customFeatures_v2", JSON.stringify(items));
         renderFeatures();
-        document
-          .getElementById("featureModal")
-          .classList.remove("active");
+        document.getElementById("featureModal").classList.remove("active");
         addFeatureForm.reset();
         alert("Keunggulan berhasil disimpan!");
       }
@@ -490,9 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const galleryModal = document.getElementById("galleryModal");
-  const openAddGalleryModal = document.getElementById(
-    "openAddGalleryModal",
-  );
+  const openAddGalleryModal = document.getElementById("openAddGalleryModal");
   const galleryModalClose = document.getElementById("galleryModalClose");
   if (openAddGalleryModal)
     openAddGalleryModal.addEventListener("click", () =>
@@ -504,9 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
   const featureModal = document.getElementById("featureModal");
-  const openAddFeatureModal = document.getElementById(
-    "openAddFeatureModal",
-  );
+  const openAddFeatureModal = document.getElementById("openAddFeatureModal");
   const featureModalClose = document.getElementById("featureModalClose");
   if (openAddFeatureModal)
     openAddFeatureModal.addEventListener("click", () =>
@@ -564,8 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (sidebarOpen) sidebarOpen.addEventListener("click", openSidebar);
   if (sidebarClose) sidebarClose.addEventListener("click", closeSidebar);
-  if (sidebarOverlay)
-    sidebarOverlay.addEventListener("click", closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener("click", closeSidebar);
 
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -603,24 +565,20 @@ document.addEventListener("DOMContentLoaded", () => {
           </button>
         </div>
       `;
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", () => {
-          localStorage.removeItem("currentUser");
-          renderAuthState();
-          updateAdminUI();
-        });
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("currentUser");
+        renderAuthState();
+        updateAdminUI();
+      });
     } else {
       authContainer.innerHTML = `
         <button type="button" class="btn-secondary btn-sm" id="loginBtnOpen">
           <i class="fa-solid fa-right-to-bracket"></i> Masuk
         </button>
       `;
-      document
-        .getElementById("loginBtnOpen")
-        .addEventListener("click", () => {
-          loginModal.classList.add("active");
-        });
+      document.getElementById("loginBtnOpen").addEventListener("click", () => {
+        loginModal.classList.add("active");
+      });
     }
     updateAdminUI();
   }
